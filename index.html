@@ -41,8 +41,8 @@
         <h2>HighTech Quantum</h2>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Portfolio</a></li>
                 <li><a href="#">Contact</a></li>
@@ -595,7 +595,7 @@
   </div>
 </section>
 
-<!-- New Footer Section -->
+<!-- Footer Section -->
 <footer class="main-footer">
     <div class="container">
         <div class="footer-content">
@@ -606,8 +606,8 @@
             <div class="footer-links">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -628,152 +628,9 @@
         </div>
     </div>
 </footer>
-  
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger-menu');
-    const nav = document.querySelector('nav');
-    hamburger.addEventListener('click', function() {
-        nav.classList.toggle('active');
-        hamburger.classList.toggle('active');
-    });
 
-    const animatedBg = document.querySelector('.animated-bg');
-    for (let i = 0; i < 50; i++) {
-        let span = document.createElement('span');
-        span.style.left = Math.random() * window.innerWidth + 'px';
-        span.style.top = Math.random() * window.innerHeight + 'px';
-        span.style.width = Math.random() * 30 + 10 + 'px';
-        span.style.height = span.style.width;
-        span.style.animationDelay = Math.random() * 5 + 's';
-        span.style.animationDuration = Math.random() * 20 + 10 + 's';
-        animatedBg.appendChild(span);
-    }
-});
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="script.js"></script>
 
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function changeSlide(n) {
-    showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-    let slides = document.getElementsByClassName("slide");
-    let dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {slideIndex = 1}    
-    if (n < 1) {slideIndex = slides.length}
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].className += " active";
-}
-
-setInterval(() => changeSlide(1), 5000);
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const carousel = document.querySelector('.story-carousel');
-  const prevBtn = document.querySelector('.prev-btn');
-  const nextBtn = document.querySelector('.next-btn');
-  let currentIndex = 0;
-
-  function showStory(index) {
-    const offset = index * carousel.offsetWidth;
-    carousel.scrollTo({
-      left: offset,
-      behavior: 'smooth'
-    });
-  }
-
-  prevBtn.addEventListener('click', () => {
-    currentIndex = Math.max(currentIndex - 1, 0);
-    showStory(currentIndex);
-  });
-
-  nextBtn.addEventListener('click', () => {
-    currentIndex = Math.min(currentIndex + 1, carousel.children.length - 1);
-    showStory(currentIndex);
-  });
-});
-document.querySelectorAll('.question').forEach(question => {
-      question.addEventListener('click', () => {
-        const item = question.parentNode;
-        item.classList.toggle('active');
-      });
-    });
-    document.addEventListener('DOMContentLoaded', () => {
-  const header = document.getElementById('main-header');
-  const topBar = document.querySelector('.top-bar');
-  const hamburger = document.querySelector('.hamburger-menu');
-  const nav = document.querySelector('nav');
-  let lastScrollTop = 0, ticking = false;
-
-  const updateHeader = () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const topBarHeight = topBar ? topBar.offsetHeight : 0;
-
-    if (scrollTop > topBarHeight) {
-      if (!header.classList.contains('fixed')) {
-        header.classList.add('fixed');
-        document.body.classList.add('header-fixed');
-        document.body.style.paddingTop = `${header.offsetHeight + topBarHeight}px`;
-      }
-    } else {
-      header.classList.remove('fixed');
-      document.body.classList.remove('header-fixed');
-      document.body.style.paddingTop = '0';
-    }
-
-    lastScrollTop = scrollTop;
-    ticking = false;
-  };
-
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        updateHeader();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
-
-  window.addEventListener('resize', updateHeader);
-  updateHeader();
-
-
-});
-
-</script>
-
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script>
-      var swiper = new Swiper('.swiper-container', {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        breakpoints: {
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-          }
-        },
-        autoplay: {
-          delay: 4000,
-          disableOnInteraction: false,
-        },
-      });
-    </script>
-    
 </body>
 </html>

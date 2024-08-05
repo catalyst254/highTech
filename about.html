@@ -1,405 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gitonga Tech Studio - Futuristic Digital Solutions</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
-
-        :root {
-            --primary-color: #00ffff;
-            --secondary-color: #ff00ff;
-            --bg-color: #0a0a0a;
-            --text-color: #ffffff;
-        }
-
-        .section-title::after {
-  content: '|';
-  display: inline-block;
-  animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(10px);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-
-        .logo {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-transform: uppercase;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
-        }
-
-        .nav-links a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 300;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            opacity: 0.1;
-            z-index: -1;
-        }
-
-        .hero-content {
-            text-align: center;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 64px;
-            margin-bottom: 20px;
-            text-shadow: 0 0 10px var(--primary-color);
-        }
-
-        .hero p {
-            font-size: 24px;
-            margin-bottom: 30px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: var(--primary-color);
-            color: var(--bg-color);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: all 0.5s;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        .services {
-            padding: 100px 0;
-        }
-
-        .services h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 36px;
-            text-align: center;
-            margin-bottom: 50px;
-            color: var(--primary-color);
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-
-        .service-item {
-            background: rgba(255,255,255,0.05);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .service-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,255,255,0.2);
-        }
-
-        .service-item i {
-            font-size: 48px;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-        }
-
-        .service-item h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.1;
-        }
-
-        .animated-bg span {
-            position: absolute;
-            display: block;
-            width: 20px;
-            height: 20px;
-            background: var(--primary-color);
-            animation: move 25s linear infinite;
-            border-radius: 50%;
-        }
-
-        @keyframes move {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-                border-radius: 0;
-            }
-            100% {
-                transform: translateY(-1000px) rotate(720deg);
-                opacity: 0;
-                border-radius: 50%;
-            }
-        }
-        .welcome-slideshow {
-  perspective: 1000px;
-  width: 300px;
-  height: 300px;
-  margin: 100px auto;
-}
-
-.cube {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transform: translateZ(-150px);
-  transition: transform 1s;
-}
-
-.face {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  padding: 20px;
-  box-sizing: border-box;
-  border: 2px solid #fff;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  font-family: Arial, sans-serif;
-}
-
-.face h2 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
-
-.face p {
-  font-size: 1em;
-}
-
-.front  { transform: rotateY(0deg) translateZ(150px); }
-.back   { transform: rotateY(180deg) translateZ(150px); }
-.right  { transform: rotateY(90deg) translateZ(150px); }
-.left   { transform: rotateY(-90deg) translateZ(150px); }
-
-@keyframes rotateCube {
-  0% { transform: translateZ(-150px) rotateY(0deg); }
-  25% { transform: translateZ(-150px) rotateY(-90deg); }
-  50% { transform: translateZ(-150px) rotateY(-180deg); }
-  75% { transform: translateZ(-150px) rotateY(-270deg); }
-  100% { transform: translateZ(-150px) rotateY(-360deg); }
-}
-
-.cube {
-  animation: rotateCube 20s infinite linear;
-}
-
-.cube:hover {
-  animation-play-state: paused;
-}
-
-#digital-solutions {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  color: #fff;
-  padding: 80px 0;
-  overflow: hidden;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.section-title {
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 50px;
-  color: #0ef;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.solutions-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-}
-
-.solution-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  padding: 30px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.solution-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 238, 255, 0.2);
-}
-
-.solution-icon {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  color: #0ef;
-}
-
-.solution-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: #fff;
-}
-
-.solution-card p {
-  font-size: 1rem;
-  color: #b3b3b3;
-}
-
-.solution-hover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 238, 255, 0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.solution-card:hover .solution-hover {
-  opacity: 1;
-}
-
-.learn-more {
-  color: #1a1a2e;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  background: #fff;
-  padding: 10px 20px;
-  border-radius: 25px;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-.learn-more:hover {
-  background: #1a1a2e;
-  color: #0ef;
-}
-
-@media (max-width: 768px) {
-  .section-title {
-    font-size: 2rem;
-  }
-  
-  .solutions-grid {
-    grid-template-columns: 1fr;
-  }
-}
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> About-HighTech Quantum </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="about.css">
 </head>
-<body>
+ <div class="top-bar">
+        <div class="contact-infom">
+            <span class="phone"><i class="fas fa-phone-alt"></i> +254 110 848 885</span>
+            <span class="email"><i class="fas fa-envelope"></i> info@gitonga.com</span>
+            <span class="hours"><i class="fas fa-clock"></i> Mon-Fri 9am-6pm</span>
+        </div>
+        <div class="social-icons">
+            <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
     <div class="animated-bg">
         <span></span>
         <span></span>
@@ -412,138 +32,485 @@
         <span></span>
         <span></span>
     </div>
-
-    <header>
-        <nav class="container">
-            <div class="logo">Gitonga Tech</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <header id="main-header"> 
+        <div class="logo">
+            <img src="logo.jpg" alt="Gitonga Tech Studio">
+        </div>
+        <h2>HighTech Quantum</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+                <li class="dropdown">
+                  <button class="dropbtn">Go To Platforms <i class="fa fa-caret-down"></i></button>
+                  <div class="dropdown-content">
+                    <a href="#"><i class="fa fa-graduation-cap"></i> HighTech Lab</a>
+                    <a href="#"><i class="fas fa-tachometer-alt"></i> HighTech Dashboard</a>
+                  </div>
+                </li>
             </ul>
         </nav>
-    </header>
-    <section class="welcome-slideshow">
-        <div class="cube">
-            <div class="face front">
-                <h2>Welcome to Gitonga Tech Studio</h2>
-                <p>Your partner in innovative technology solutions</p>
-            </div>
-            <div class="face back">
-                <h2>Cutting-edge Services</h2>
-                <p>Explore our range of tech services</p>
-            </div>
-            <div class="face right">
-                <h2>Let's Build Together</h2>
-                <p>Turn your ideas into reality with us</p>
-            </div>
-            <div class="face left">
-                <h2>Innovative Solutions</h2>
-                <p>Tailored to your unique needs</p>
-            </div>
+        <div class="hamburger-menu">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
         </div>
-    </section>
+    </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>Future-Ready Tech Solutions</h1>
-                <p>Empowering your digital transformation journey</p>
-                <a href="#contact" class="cta-button">Innovate with Us</a>
-            </div>
-        </section>
+<body>
+  <section id="hero">
+    <h1>About us</h1>
+    <p>Discover the story behind HighTech Quantum</p>
+</section>
+<!-- Acheivement Counting Section -->
+<section id="achievements" class="section">
+  <div class="container">
+    <div class="achievement-grid">
+      <div class="achievement-item">
+        <i class="fas fa-project-diagram"></i>
+        <span class="count" data-target="50">0</span>
+        <p>Quantum Projects Completed</p>
+      </div>
+      <div class="achievement-item">
+        <i class="fas fa-user-friends"></i>
+        <span class="count" data-target="100">0</span>
+        <p>Happy Clients</p>
+      </div>
+      <div class="achievement-item">
+        <i class="fas fa-award"></i>
+        <span class="count" data-target="25">0</span>
+        <p>Industry Awards</p>
+      </div>
+      <div class="achievement-item">
+        <i class="fas fa-globe"></i>
+        <span class="count" data-target="15">0</span>
+        <p>Countries Impacted</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <section id="services" class="services">
-            <div class="container">
-                <h2>Our Cutting-Edge Services</h2>
-                <div class="service-grid">
-                    <div class="service-item">
-                        <i class="fas fa-vr-cardboard"></i>
-                        <h3>VR/AR Development</h3>
-                        <p>Immersive experiences for the digital age</p>
-                    </div>
-                    <div class="service-item">
-                        <i class="fas fa-robot"></i>
-                        <h3>AI Integration</h3>
-                        <p>Smart solutions powered by artificial intelligence</p>
-                    </div>
-                    <div class="service-item">
-                        <i class="fas fa-blockchain"></i>
-                        <h3>Blockchain Solutions</h3>
-                        <p>Secure and transparent decentralized systems</p>
-                    </div>
-                    <div class="service-item">
-                        <i class="fas fa-microchip"></i>
-                        <h3>IoT Ecosystems</h3>
-                        <p>Connected devices for smarter living</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    <section id="digital-solutions">
-        <div class="container">
-          <h2 class="section-title">Our Digital Solutions</h2>
-          <div class="solutions-grid">
-            <div class="solution-card">
-              <div class="solution-icon">
-                <i class="fas fa-code"></i>
-              </div>
-              <h3>Custom Software</h3>
-              <p>Tailored applications to streamline your business processes.</p>
-              <div class="solution-hover">
-                <span class="learn-more">Learn More</span>
-              </div>
-            </div>
-            <div class="solution-card">
-              <div class="solution-icon">
-                <i class="fas fa-robot"></i>
-              </div>
-              <h3>AI Integration</h3>
-              <p>Implement intelligent systems to enhance decision-making.</p>
-              <div class="solution-hover">
-                <span class="learn-more">Learn More</span>
-              </div>
-            </div>
-            <div class="solution-card">
-              <div class="solution-icon">
-                <i class="fas fa-lock"></i>
-              </div>
-              <h3>Cybersecurity</h3>
-              <p>Protect your digital assets with advanced security measures.</p>
-              <div class="solution-hover">
-                <span class="learn-more">Learn More</span>
-              </div>
-            </div>
-            <div class="solution-card">
-              <div class="solution-icon">
-                <i class="fas fa-chart-network"></i>
-              </div>
-              <h3>Data Analytics</h3>
-              <p>Harness the power of your data for actionable insights.</p>
-              <div class="solution-hover">
-                <span class="learn-more">Learn More</span>
-              </div>
+<section id="about-us" class="section">
+  <div class="container">
+    <h2 class="section-title">About HighTech Quantum</h2>
+    <div class="about">
+      <div class="about-image-container">
+        <div class="about-image">
+          <img src="focus.jpg" alt="HighTech Quantum team brainstorming">
+          <div class="count-overlay">
+            <div class="count-shape">
+              <i class="fas fa-user-friends"></i>
+              <span class="count" data-target="100">0</span>
+              <p>Happy Clients</p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+      <div class="aboutus-content">
+        <h3>Pioneering the Future of Technology</h3>
+        <p>At HighTech Quantum, we're not just another tech company. We're a group of passionate innovators, dreamers, and problem-solvers on a mission to reshape the digital landscape. Founded in 2023, we bring fresh perspectives and cutting-edge solutions to an industry ripe for disruption.</p>
+        <p>Our team of bright minds combines expertise in quantum computing, artificial intelligence, and blockchain technology to create synergies that push the boundaries of what's possible. We're not afraid to challenge conventions and take calculated risks to drive progress.</p>
+        <p>As a startup, we pride ourselves on our agility, creativity, and unwavering commitment to our clients' success. We're here to prove that being new to the game doesn't mean we can't change it entirely.</p>
+    </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const animatedBg = document.querySelector('.animated-bg');
-            for (let i = 0; i < 50; i++) {
-                let span = document.createElement('span');
-                span.style.left = Math.random() * window.innerWidth + 'px';
-                span.style.top = Math.random() * window.innerHeight + 'px';
-                span.style.width = Math.random() * 30 + 10 + 'px';
-                span.style.height = span.style.width;
-                span.style.animationDelay = Math.random() * 5 + 's';
-                span.style.animationDuration = Math.random() * 20 + 10 + 's';
-                animatedBg.appendChild(span);
-            }
+<section id="teams" class="section">
+  <div class="container">
+      <h2 class="section-title">Our Trailblazers</h2>
+      <div class="teams-grid">
+          <div class="teams-member">
+              <div class="members-card">
+                  <div class="members-front">
+                      <img src="sarah-chen.jpg" alt="Sarah Chen">
+                      <h3>Sarah Chen</h3>
+                      <p>Quantum Pioneer</p>
+                      <div class="social-links">
+                          <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                      </div>
+                  </div>
+                  <div class="members-back">
+                      <p>"Reshaping reality, one qubit at a time."</p>
+                      <ul class="members-skills">
+                          <li>Quantum Computing</li>
+                          <li>Strategic Leadership</li>
+                          <li>Future-Tech Vision</li>
+                      </ul>
+                      <div class="social-links">
+                          <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="teams-member">
+              <div class="members-card">
+                  <div class="members-front">
+                      <img src="alex-rodriguez.jpg" alt="Alex Rodriguez">
+                      <h3>Alex Rodriguez</h3>
+                      <p>AI Architect</p>
+                      <div class="social-links">
+                          <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                      </div>
+                  </div>
+                  <div class="members-back">
+                      <p>"Creating intelligence that amplifies human potential."</p>
+                      <ul class="members-skills">
+                          <li>Machine Learning</li>
+                          <li>Neural Networks</li>
+                          <li>Ethical AI Design</li>
+                      </ul>
+                      <div class="social-links">
+                          <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="teams-member">
+              <div class="members-card">
+                  <div class="members-front">
+                      <img src="lila-patel.jpg" alt="Lila Patel">
+                      <h3>Lila Patel</h3>
+                      <p>Blockchain Virtuoso</p>
+                      <div class="social-links">
+                          <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                          <a href="#" class="social-link"><i class="fab fa-medium"></i></a>
+                      </div>
+                  </div>
+                  <div class="members-back">
+                      <p>"Decentralizing the future, block by block."</p>
+                      <ul class="members-skills">
+                          <li>Smart Contracts</li>
+                          <li>Cryptography</li>
+                          <li>DeFi Systems</li>
+                      </ul>
+                      <div class="social-links">
+                          <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                          <a href="#" class="social-link"><i class="fab fa-medium"></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="teams-member">
+              <div class="members-card">
+                  <div class="members-front">
+                      <img src="chairman.jpg" alt="Jamal Thompson">
+                      <h3>Jamal Thompson</h3>
+                      <p>UX Magician</p>
+                      <div class="social-links">
+                          <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                          <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                      </div>
+                  </div>
+                  <div class="members-back">
+                      <p>"Crafting digital experiences that feel like magic."</p>
+                      <ul class="members-skills">
+                          <li>Interaction Design</li>
+                          <li>User Research</li>
+                          <li>Prototyping</li>
+                      </ul>
+                      <div class="social-links">
+                          <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                          <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="teams-member">
+            <div class="members-card">
+                <div class="members-front">
+                    <img src="chairman.jpg" alt="Jamal Thompson">
+                    <h3>Jamal Thompson</h3>
+                    <p>UX Magician</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+                <div class="members-back">
+                    <p>"Crafting digital experiences that feel like magic."</p>
+                    <ul class="members-skills">
+                        <li>Interaction Design</li>
+                        <li>User Research</li>
+                        <li>Prototyping</li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+  <section class="journey-section">
+    <div class="container">
+        <h2 class="section-title">Our Quantum Leap</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">January 2023</div>
+                    <h3 class="timeline-title">Birth of HighTech Quantum</h3>
+                    <p class="timeline-description">Four tech enthusiasts launch our venture from a garage.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">March 2023</div>
+                    <h3 class="timeline-title">First Office Space</h3>
+                    <p class="timeline-description">Secured seed funding and moved to our first office.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">June 2023</div>
+                    <h3 class="timeline-title">Quantum-Inspired AI</h3>
+                    <p class="timeline-description">Launched our first quantum-inspired AI algorithm.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">September 2023</div>
+                    <h3 class="timeline-title">Blockchain Partnership</h3>
+                    <p class="timeline-description">Partnered to develop quantum-resistant cryptography.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">December 2023</div>
+                    <h3 class="timeline-title">Major Client Win</h3>
+                    <p class="timeline-description">Closed first contract with a Fortune 500 company.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Today</div>
+                    <h3 class="timeline-title">Continuous Innovation</h3>
+                    <p class="timeline-description">Expanding our reach in the quantum tech space.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="values" class="section">
+    <div class="container">
+        <h2 class="section-title">Our Quantum Values</h2>
+        <div class="value-grid">
+            <div class="values-item">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Innovative Thinking</h3>
+                <p>We challenge the status quo and think beyond conventional boundaries to create groundbreaking solutions.</p>
+            </div>
+            <div class="values-item">
+                <i class="fas fa-users"></i>
+                <h3>Collaborative Synergy</h3>
+                <p>We believe in the power of diverse minds coming together to achieve extraordinary results.</p>
+            </div>
+            <div class="values-item">
+                <i class="fas fa-rocket"></i>
+                <h3>Quantum Leap Excellence</h3>
+                <p>We strive for excellence in every aspect of our work, aiming to make significant advancements in technology.</p>
+            </div>
+            <div class="values-item">
+                <i class="fas fa-handshake"></i>
+                <h3>Client-Centric Approach</h3>
+                <p>Our clients' success is our success. We're dedicated to delivering solutions that exceed expectations.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="cta-message">
+      <h2>Ready to Quantum Leap Your Business?</h2>
+      <p>Let's explore how HighTech Quantum can revolutionize your tech strategy.</p>
+      <a href="#" class=" btn btn-primary">Get in Touch</a>
+  </div>
+
+</section>
+
+<!-- Footer Section -->
+<footer class="main-footer">
+  <div class="container">
+      <div class="footer-content">
+          <div class="footer-logo">
+              <img src="logo.png.jpg" alt="HighTech QuantumLogo">
+              <p>Innovating for a better tomorrow</p>
+          </div>
+          <div class="footer-links">
+              <h3>Quick Links</h3>
+              <ul>
+                  <li><a href="#home">Home</a></li>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#services">Services</a></li>
+                  <li><a href="#portfolio">Portfolio</a></li>
+                  <li><a href="#contact">Contact</a></li>
+              </ul>
+          </div>
+          <div class="footer-social">
+              <h3>Connect With Us</h3>
+              <div class="social-icons">
+                  <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" class="icon"><i class="fab fa-twitter"></i></a>
+                  <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
+                  <a href="#" class="icon"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+          </div>
+      </div>
+      <div class="footer-bottom">
+          <p>&copy; 2024 HighTech Quantum. All rights reserved.</p>
+      </div>
+  </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const header = document.querySelector('header');
+      const scrollWatcher = () => {
+        if (window.scrollY > 100) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      };
+      window.addEventListener('scroll', scrollWatcher);
+
+      // Counting effect
+      const countElements = document.querySelectorAll('.count');
+      const speed = 200; // The lower the faster
+
+      const counter = (target, element) => {
+        const updateCount = () => {
+          const count = +element.innerText;
+          const inc = target / speed;
+
+          if (count < target) {
+            element.innerText = Math.ceil(count + inc);
+            setTimeout(updateCount, 1);
+          } else {
+            element.innerText = target;
+          }
+        };
+
+        updateCount();
+      };
+
+      const handleIntersection = (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const target = +entry.target.getAttribute('data-target');
+            counter(target, entry.target);
+            observer.unobserve(entry.target);
+          }
         });
-    </script>
+      };
+
+      const observer = new IntersectionObserver(handleIntersection, {
+        threshold: 0.5
+      });
+
+      countElements.forEach(el => observer.observe(el));
+    });
+  </script>
+  <script>
+    
+document.querySelectorAll('.question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentNode;
+        item.classList.toggle('active');
+      });
+    });
+    
+    document.addEventListener('DOMContentLoaded', () => {
+  const header = document.getElementById('main-header');
+  const topBar = document.querySelector('.top-bar');
+  const hamburger = document.querySelector('.hamburger-menu');
+  const nav = document.querySelector('nav');
+  let lastScrollTop = 0, ticking = false;
+
+  const updateHeader = () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const topBarHeight = topBar ? topBar.offsetHeight : 0;
+
+    if (scrollTop > topBarHeight) {
+      if (!header.classList.contains('fixed')) {
+        header.classList.add('fixed');
+        document.body.classList.add('header-fixed');
+        document.body.style.paddingTop = `${header.offsetHeight + topBarHeight}px`;
+      }
+    } else {
+      header.classList.remove('fixed');
+      document.body.classList.remove('header-fixed');
+      document.body.style.paddingTop = '0';
+    }
+
+    lastScrollTop = scrollTop;
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateHeader();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  window.addEventListener('resize', updateHeader);
+  updateHeader();
+
+
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('.section');
+  const parallaxElements = document.querySelectorAll('.parallax-bg');
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '-50px',
+    threshold: 0.15
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      } else {
+        entry.target.classList.remove('in-view');
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+
+  // Parallax effect
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    parallaxElements.forEach(elem => {
+      const speed = elem.dataset.speed || 0.5;
+      elem.style.transform = `translateY(${scrolled * speed}px)`;
+    });
+  });
+});
+
+  </script>
+  
+  <script src="script.js"></script>
 </body>
 </html>
