@@ -47,7 +47,7 @@
                 <li class="dropdown">
                   <button class="dropbtn">Go To Platforms <i class="fa fa-caret-down"></i></button>
                   <div class="dropdown-content">
-                    <a href="#"><i class="fa fa-graduation-cap"></i> HighTech Lab</a>
+                    <a href="hightechlab.html"><i class="fa fa-graduation-cap"></i> HighTech Lab</a>
                     <a href="#"><i class="fas fa-tachometer-alt"></i> HighTech Dashboard</a>
                   </div>
                 </li>
@@ -473,40 +473,6 @@ document.querySelectorAll('.question').forEach(question => {
   updateHeader();
 
 
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const sections = document.querySelectorAll('.section');
-  const parallaxElements = document.querySelectorAll('.parallax-bg');
-
-  const observerOptions = {
-    root: null,
-    rootMargin: '-50px',
-    threshold: 0.15
-  };
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-      } else {
-        entry.target.classList.remove('in-view');
-      }
-    });
-  }, observerOptions);
-
-  sections.forEach(section => {
-    observer.observe(section);
-  });
-
-  // Parallax effect
-  window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    parallaxElements.forEach(elem => {
-      const speed = elem.dataset.speed || 0.5;
-      elem.style.transform = `translateY(${scrolled * speed}px)`;
-    });
-  });
 });
 
   </script>
