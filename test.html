@@ -1,153 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Future Lab Space</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <style>
-        :root {
-            --scrollbar-width: 17px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Unique Page</title>
+  <style>
+/* Our Courses Section */
+.courses {
+  background-color: #f5f5f5;
+  padding: 80px 0;
+}
 
-        .lab-content.not-logged-in {
-            background-color: #f5f5f5;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
+.courses .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
 
-        .welcome-container {
-            margin-bottom: 30px;
-            width: 60%;
-        }
+.courses .top h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #333;
+}
 
-        .welcome-heading {
-            font-size: 32px;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 10px;
-        }
+.courses .top h1 span {
+  background: linear-gradient(to right, #4527a4, #7b1fa2);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
 
-        .highlight {
-            color: #6c63ff;
-        }
+.section.courses .top button {
+  background-color: #4527a4;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-        .welcome-text {
-            font-size: 18px;
-            color: #666;
-            position: relative;
-        }
+.section.courses .top button:hover {
+  background-color: #7b1fa2;
+}
 
-        .icon-container {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background-image: linear-gradient(45deg, #6c63ff, #8f85ff);
-            border-radius: 50%;
-            margin-left: 10px;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
+.section.courses .courses-description {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 40px;
+}
 
-        .icon {
-            font-size: 20px;
-            color: #fff;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: rotate 5s linear infinite;
-        }
+.section.courses .courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 40px;
+}
 
-        @keyframes rotate {
-            0% {
-                transform: translate(-50%, -50%) rotate(0deg);
-            }
-            100% {
-                transform: translate(-50%, -50%) rotate(360deg);
-            }
-        }
+.section.courses .course-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
 
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            margin-top: 20px;
-        }
+.section.courses .course-card:hover {
+  transform: translateY(-10px);
+}
 
-        .cta-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-image: linear-gradient(45deg, #6c63ff, #8f85ff);
-            color: #fff;
-            font-size: 16px;
-            font-weight: 600;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: background-image 0.3s ease;
-        }
+.section.courses .course-image {
+  height: 200px;
+  overflow: hidden;
+}
 
-        .cta-button:hover {
-            background-image: linear-gradient(45deg, #5a54d9, #7d74e6);
-        }
+.section.courses .course-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
 
-        .btn-icon {
-            margin-right: 10px;
-            font-size: 18px;
-        }
+.section.courses .course-card:hover .course-image img {
+  transform: scale(1.1);
+}
 
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: var(--scrollbar-width);
-        }
+.section.courses .course-content {
+  padding: 20px;
+}
 
-        ::-webkit-scrollbar-track {
-            background-color: #f5f5f5;
-        }
+.section.courses .course-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 12px;
+}
 
-        ::-webkit-scrollbar-thumb {
-            background-color: #6c63ff;
-            border-radius: 10px;
-        }
+.section.courses .course-description {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
 
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: #5a54d9;
-        }
-    </style>
+.section.courses .course-link {
+  display: inline-block;
+  background-color: #4527a4;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.section.courses .course-link:hover {
+  background-color: #7b1fa2;
+}
+
+.section.courses .course-branches {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.section.courses .course-branches .course-link {
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+  </style>
 </head>
 <body>
-    <div class="lab-content not-logged-in">
-        <div class="welcome-container">
-            <img src="https://lab.waziup.io/static/media/empty-bucket.6a7d1518daf1deda37fe5935bb9e8e31.svg" alt="Empty Bucket">
-
-            <h2 class="welcome-heading">Welcome to Your <span class="highlight">Future Lab Space</span></h2>
-            <p class="welcome-text">You currently have no resources in your lab. <span class="icon-container">
-                <i class="fas fa-bucket-open icon"></i>
-            </span> Sign up to start your personalized tech journey!</p>
-            <div class="cta-buttons">
-                <button class="cta-button signup-btn">
-                    <span class="btn-icon">
-                        <i class="fas fa-user-plus"></i>
-                    </span>
-                    <span class="btn-text">Sign Up</span>
-                </button>
-                <button class="cta-button resources-btn">
-                    <span class="btn-icon">
-                        <i class="fas fa-book-open"></i>
-                    </span>
-                    <span class="btn-text">Explore Resources</span>
-                </button>
-            </div>
-        </div>
+<!-- Our Courses -->
+<section id="courses" class="section">
+    <div class="top">
+      <h1><span>Our Courses</span></h1>
+      <button>login</button>
     </div>
-</body>
+    <p class="courses-description">Unlock your potential with our diverse range of expert-led technology courses.</p>
+    <div class="courses-grid">
+      <div class="course-card">
+        <div class="course-image">
+          <img src="https://via.placeholder.com/300x200" alt="Introduction to Coding">
+        </div>
+        <div class="course-content">
+          <h3 class="course-title">Introduction to Coding</h3>
+          <p class="course-description">Learn the fundamentals of programming and build your first simple applications.</p>
+          <a href="#" class="course-link">Enroll</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-image">
+          <img src="https://via.placeholder.com/300x200" alt="Web Development Basics">
+        </div>
+        <div class="course-content">
+          <h3 class="course-title">Web Development Basics</h3>
+          <p class="course-description">Gain a solid foundation in HTML, CSS, and JavaScript to create responsive and interactive websites.</p>
+          <a href="#" class="course-link">Enroll</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-image">
+          <img src="https://via.placeholder.com/300x200" alt="Database Fundamentals">
+        </div>
+        <div class="course-content">
+          <h3 class="course-title">Database Fundamentals</h3>
+          <p class="course-description">Understand the principles of database management and learn to design and query databases.</p>
+          <a href="#" class="course-link">Enroll</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-image">
+          <img src="https://via.placeholder.com/300x200" alt="Introduction to Machine Learning">
+        </div>
+        <div class="course-content">
+          <h3 class="course-title">Introduction to Machine Learning</h3>
+          <p class="course-description">Dive into the world of machine learning and learn the fundamentals of algorithms that power intelligent systems.</p>
+          <a href="#" class="course-link">Enroll</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-image">
+          <img src="https://via.placeholder.com/300x200" alt="Advanced Web Development">
+        </div>
+        <div class="course-content">
+          <h3 class="course-title">Advanced Web Development</h3>
+          <p class="course-description">Take your web development skills to the next level and master modern technologies and frameworks.</p>
+          <div class="course-branches">
+            <a href="#" class="course-link">Front-End Development</a>
+            <a href="#" class="course-link">Back-End Development</a>
+            <a href="#" class="course-link">Full-Stack Development</a>
+          </div>
+          <a href="#" class="course-link">Enroll</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-image">
+          <img src="https://via.placeholder.com/300x200" alt="Cybersecurity Fundamentals">
+        </div>
+        <div class="course-content">
+          <h3 class="course-title">Cybersecurity Fundamentals</h3>
+          <p class="course-description">Protect your digital assets by learning the essential concepts and best practices in cybersecurity.</p>
+          <div class="course-branches">
+            <a href="#" class="course-link">Network Security</a>
+            <a href="#" class="course-link">Ethical Hacking</a>
+            <a href="#" class="course-link">Incident Response</a>
+          </div>
+          <a href="#" class="course-link">Enroll</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-image">
+          <img src="https://via.placeholder.com/300x200" alt="Data Science with Python">
+        </div>
+        <div class="course-content">
+          <h3 class="course-title">Data Science with Python</h3>
+          <p class="course-description">Harness the power of Python to analyze, visualize, and extract insights from complex data sets.</p>
+          <a href="#" class="course-link">Enroll</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-image">
+          <img src="https://via.placeholder.com/300x200" alt="Blockchain Development">
+        </div>
+        <div class="course-content">
+          <h3 class="course-title">Blockchain Development</h3>
+          <p class="course-description">Unlock the potential of decentralized applications and learn the fundamentals of blockchain technology.</p>
+          <a href="#" class="course-link">Enroll</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-image">
+          <img src="https://via.placeholder.com/300x200" alt="Artificial Intelligence and Deep Learning">
+        </div>
+        <div class="course-content">
+          <h3 class="course-title">Artificial Intelligence and Deep Learning</h3>
+          <p class="course-description">Explore the cutting edge of AI and deep learning, and learn to build advanced neural networks.</p>
+          <a href="#" class="course-link">Enroll</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </html>

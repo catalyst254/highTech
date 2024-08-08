@@ -285,6 +285,7 @@ h1, h2 {
     max-width: 100%;
     height: auto;
   }
+
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -339,4 +340,89 @@ h1, h2 {
 
 .learn-more:active {
   transform: scale(0.98);
+}
+
+/* Our Courses Section */
+.section#courses {
+  padding: 50px 0;
+  overflow-x: hidden;
+}
+
+.section#courses .courses-description {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.section#courses .courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.section#courses .course-card {
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgb(0, 0, 0);
+  border-radius: 1%;
+  overflow: hidden;
+}
+
+.section#courses .course-card .course-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.section#courses .course-card .course-content {
+  padding: 20px;
+}
+
+.section#courses .course-card .course-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.section#courses .course-card .course-description {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.course-branches {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.course-branch {
+  background-color: #0077b6;
+  color: #fff;
+  padding: 1px;
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0 10px;
+  transition: background-color 0.3s ease;
+}
+
+.course-branch:hover {
+  background-color: #005b8f;
+}
+
+.course-link {
+  background-color: orangered;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.course-link:hover {
+  background-color: #a82525;
 }
