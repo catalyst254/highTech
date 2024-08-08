@@ -281,6 +281,10 @@ h1, h2 {
   .card{
     padding: 1rem;
   }
+  .lab-content.not-logged-in .welcome-container img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
