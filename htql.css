@@ -4,6 +4,7 @@ body {
   padding: 0;
   display: flex;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  overflow-x: hidden;
 }
 
 .sidenav {
@@ -209,15 +210,14 @@ h1, h2 {
   margin-bottom: 0.5rem;
 }
 
-.card p {
+.card p, p {
   font-size: 1.1rem;
-  color: #7f8c8d;
+  color: #000000;
   margin-bottom: 1.5rem;
 }
 
 .card img {
   width: 100%;
-  max-width: 250px;
   height: 150px;
   object-fit: contain;
   margin-bottom: 1rem;
@@ -253,12 +253,21 @@ h1, h2 {
 }
 
 @media (max-width: 768px) {
+  .sidenav{
+    width: 60px;
+  }
+  .content {
+    flex-grow: 1;
+    padding: 15px;
+    margin-left: 50px;
+  }
   #programs {
     padding: 1px;
   }
 
   .card-grid {
     grid-template-columns: 1fr;
+    gap: 1;
   }
 
   .cta-container {
@@ -268,6 +277,9 @@ h1, h2 {
 
   .cta-button, .secondary-cta {
     margin: 0.5rem 0;
+  }
+  .card{
+    padding: 1rem;
   }
 }
 

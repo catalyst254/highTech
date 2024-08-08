@@ -1,275 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Lab Space</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        :root {
+            --scrollbar-width: 17px;
+        }
+
+        .lab-content.not-logged-in {
+            background-color: #f5f5f5;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .welcome-container {
+            margin-bottom: 30px;
+            width: 60%;
+        }
+
+        .welcome-heading {
+            font-size: 32px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: #6c63ff;
+        }
+
+        .welcome-text {
+            font-size: 18px;
+            color: #666;
+            position: relative;
+        }
+
+        .icon-container {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-image: linear-gradient(45deg, #6c63ff, #8f85ff);
+            border-radius: 50%;
+            margin-left: 10px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .icon {
+            font-size: 20px;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotate 5s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .cta-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient(45deg, #6c63ff, #8f85ff);
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-image 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-image: linear-gradient(45deg, #5a54d9, #7d74e6);
+        }
+
+        .btn-icon {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: var(--scrollbar-width);
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #f5f5f5;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #6c63ff;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #5a54d9;
+        }
+    </style>
 </head>
-<style>
-  /* General styles */
-#programs {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-}
-
-.top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-h1 {
-    font-size: 2.5rem;
-    color: #2c3e50;
-    margin-bottom: 1rem;
-}
-
-h1 span {
-    background: linear-gradient(45deg, #3498db, #2980b9);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.login-btn {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.login-btn:hover {
-    background-color: #2980b9;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.intro {
-    font-size: 1.1rem;
-    color: #7f8c8d;
-    margin-bottom: 2rem;
-}
-
-/* Card grid styles */
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.card {
-    background-color: white;
-    border-radius: 10px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
-}
-
-.card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, #3498db, #2ecc71, #e74c3c, #f39c12);
-    opacity: 0.1;
-    z-index: 0;
-    transform: rotate(45deg);
-    transition: all 0.6s ease;
-}
-
-.card:hover::before {
-    transform: rotate(90deg);
-}
-
-.card img {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-    object-fit: contain;
-    margin-bottom: 1rem;
-}
-
-.card h3 {
-    font-size: 1.3rem;
-    color: #2c3e50;
-    margin-bottom: 0.5rem;
-    position: relative;
-    z-index: 1;
-}
-
-.card p {
-    font-size: 0.9rem;
-    color: #7f8c8d;
-    margin-bottom: 1rem;
-    position: relative;
-    z-index: 1;
-}
-
-.learn-more {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: #3498db;
-    color: white;
-    text-decoration: none;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    position: relative;
-    z-index: 1;
-}
-
-.learn-more:hover {
-    background-color: #2980b9;
-    transform: translateY(-2px);
-}
-
-/* CTA container styles */
-.cta-container {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 3rem;
-}
-
-.cta-button, .secondary-cta {
-    padding: 0.8rem 1.5rem;
-    border-radius: 25px;
-    font-size: 1rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.cta-button {
-    background-color: #e74c3c;
-    color: white;
-}
-
-.cta-button:hover {
-    background-color: #c0392b;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.secondary-cta {
-    background-color: transparent;
-    color: #3498db;
-    border: 2px solid #3498db;
-}
-
-.secondary-cta:hover {
-    background-color: #3498db;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .top {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .login-btn {
-        margin-top: 1rem;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    .card-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .cta-container {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-</style>
 <body>
-   <!-- programs-->
-   <section id="programs" class="section">
-    <div class="top">
-        <h1><span>Tech Programs</span></h1>
-        <button class="login-btn">Login</button>
-    </div>
-    <h1>Empowering the Next Generation of Tech Leaders</h1>
-    <p class="intro">Discover our wide array of cutting-edge technology programs designed to propel your career in various tech domains.</p>
-    <div class="card-grid">
-        <div class="card">
-            <img src="aiicon.png" alt="AI icon" >
-            <h3>AI Research Program</h3>
-            <p>Dive deep into artificial intelligence and machine learning, working on real-world projects.</p>
-            <a href="#" class="learn-more">Learn More</a>
-        </div>
-        <div class="card">
-            <img src="cyber2.png" alt="Cybersecurity icon" >
-            <h3>Cybersecurity Initiative</h3>
-            <p>Develop skills to protect digital assets and combat cyber threats in our state-of-the-art lab.</p>
-            <a href="#" class="learn-more">Learn More</a>
-        </div>
-        <div class="card">
-            <img src="iot.png" alt="IoT icon" >
-            <h3>IoT Innovation Lab</h3>
-            <p>Create and test cutting-edge Internet of Things solutions with industry-leading equipment.</p>
-            <a href="#" class="learn-more">Learn More</a>
-        </div>
-        <div class="card">
-            <img src="block.png" alt="Blockchain icon" >
-            <h3>Blockchain Technology</h3>
-            <p>Explore the potential of blockchain and develop decentralized applications.</p>
-            <a href="#" class="learn-more">Learn More</a>
-        </div>
-        <div class="card">
-            <img src="web.png" alt="Web Dev icon" >
-            <h3>Full-Stack Web Development</h3>
-            <p>Master both front-end and back-end technologies to build robust, scalable web applications.</p>
-            <a href="#" class="learn-more">Learn More</a>
-        </div>
-        <div class="card">
-            <img src="app.png" alt="Mobile Dev icon" >
-            <h3>Mobile App Development</h3>
-            <p>Learn to create innovative mobile applications for iOS and Android platforms.</p>
-            <a href="#" class="learn-more">Learn More</a>
-        </div>
-        <div class="card">
-            <img src="ux2.png" alt="Graphics icon" >
-            <h3>3D Graphics and Animation</h3>
-            <p>Develop skills in 3D modeling, rendering, and animation for games and visual effects.</p>
-            <a href="#" class="learn-more">Learn More</a>
-        </div>
-        <div class="card">
-            <img src="data.png" alt="Data Science icon" >
-            <h3>Data Science and Analytics</h3>
-            <p>Harness the power of big data to derive insights and drive decision-making.</p>
-            <a href="#" class="learn-more">Learn More</a>
+    <div class="lab-content not-logged-in">
+        <div class="welcome-container">
+            <img src="https://lab.waziup.io/static/media/empty-bucket.6a7d1518daf1deda37fe5935bb9e8e31.svg" alt="Empty Bucket">
+
+            <h2 class="welcome-heading">Welcome to Your <span class="highlight">Future Lab Space</span></h2>
+            <p class="welcome-text">You currently have no resources in your lab. <span class="icon-container">
+                <i class="fas fa-bucket-open icon"></i>
+            </span> Sign up to start your personalized tech journey!</p>
+            <div class="cta-buttons">
+                <button class="cta-button signup-btn">
+                    <span class="btn-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </span>
+                    <span class="btn-text">Sign Up</span>
+                </button>
+                <button class="cta-button resources-btn">
+                    <span class="btn-icon">
+                        <i class="fas fa-book-open"></i>
+                    </span>
+                    <span class="btn-text">Explore Resources</span>
+                </button>
+            </div>
         </div>
     </div>
-    <div class="cta-container">
-        <a href="#" class="cta-button">Apply Now</a>
-        <a href="#" class="secondary-cta">Download Program Catalog</a>
-    </div>
-</section>
 </body>
 </html>
