@@ -1,246 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modern Unique Page</title>
-  <style>
-/* Our Courses Section */
-.courses {
-  background-color: #f5f5f5;
-  padding: 80px 0;
-}
-
-.courses .top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 40px;
-}
-
-.courses .top h1 {
-  font-size: 36px;
-  font-weight: 700;
-  color: #333;
-}
-
-.courses .top h1 span {
-  background: linear-gradient(to right, #4527a4, #7b1fa2);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.section.courses .top button {
-  background-color: #4527a4;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.section.courses .top button:hover {
-  background-color: #7b1fa2;
-}
-
-.section.courses .courses-description {
-  font-size: 18px;
-  color: #666;
-  margin-bottom: 40px;
-}
-
-.section.courses .courses-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 40px;
-}
-
-.section.courses .course-card {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-.section.courses .course-card:hover {
-  transform: translateY(-10px);
-}
-
-.section.courses .course-image {
-  height: 200px;
-  overflow: hidden;
-}
-
-.section.courses .course-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.section.courses .course-card:hover .course-image img {
-  transform: scale(1.1);
-}
-
-.section.courses .course-content {
-  padding: 20px;
-}
-
-.section.courses .course-title {
-  font-size: 24px;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 12px;
-}
-
-.section.courses .course-description {
-  font-size: 16px;
-  color: #666;
-  margin-bottom: 20px;
-}
-
-.section.courses .course-link {
-  display: inline-block;
-  background-color: #4527a4;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-.section.courses .course-link:hover {
-  background-color: #7b1fa2;
-}
-
-.section.courses .course-branches {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-.section.courses .course-branches .course-link {
-  margin-right: 12px;
-  margin-bottom: 12px;
-}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Solutions - HighTech Quantum</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styl.css">
+    <link rel="stylesheet" href="solutions.css">
 </head>
+<style>
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #444;
+}
+
+h1.page-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.solutions-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* Solutions List */
+.solutions-list {
+    flex: 1;
+    width: 20px;
+    background: rgba(3, 107, 107, 0.562);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgb(0, 255, 255);
+}
+
+.solutions-list h2 {
+    color: #ff00ff;
+    border-bottom: 2px solid #ff00ff;
+    padding-bottom: 1px;
+    margin-top: 0;
+}
+
+.solutions-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.solutions-list ul li {
+    padding: 0.5rem 1rem;
+    background-color: rgb(255, 255, 255);
+    color: #00ffea;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 1%;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    margin-top: 6px;
+}
+
+.solutions-list ul li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: orangered;
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.solutions-list ul li:hover {
+  color: orangered;
+}
+
+.solutions-list ul li:hover::before {
+  left: 0;
+}
+
+.solutions-list ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bolder;
+    font-family: cursive;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.solutions-list ul li a i {
+    margin-right: 10px;
+    font-size: 1.4rem;
+    color: #000000a9;
+}
+.solutions-list ul li a span i{
+    color: #ff00ff;
+    border-radius: 50%;
+    background-color: #ffffff;
+    padding: 5px;
+    font-size: 1.2rem;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Solutions Description */
+.solutions-description {
+    flex: 2;
+    min-width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.solutions-description img {
+    width: 100vw; 
+    margin-bottom: 20px;
+    height: auto;
+    max-width: 100%; 
+}
+
+/* Contact Section */
+.contact-container {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 8px;
+}
+
+.contact-container a.btn {
+    background-color: #fff;
+    color: #007bff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.contact-container a.btn:hover {
+    background-color: #ddd;
+}
+
+/* responsive  */
+@media (max-width: 768px) {
+    .solutions-content {
+        flex-direction: column-reverse;
+    }
+
+    .solutions-description {
+        flex: 1;
+        min-width: 100%;
+    }
+    .solutions-list{
+       width: 400px;
+       padding: 2erm;
+       margin: 0 auto;
+    }
+
+    .contact-container {
+        margin-top: 30px;
+    }
+}
+
+</style>
 <body>
-<!-- Our Courses -->
-<section id="courses" class="section">
-    <div class="top">
-      <h1><span>Our Courses</span></h1>
-      <button>login</button>
-    </div>
-    <p class="courses-description">Unlock your potential with our diverse range of expert-led technology courses.</p>
-    <div class="courses-grid">
-      <div class="course-card">
-        <div class="course-image">
-          <img src="https://via.placeholder.com/300x200" alt="Introduction to Coding">
+    <!-- Include  existing header here -->
+
+    <main class="solutions-page">
+        <div class="container">
+            <h1 class="page-title">Our Solutions</h1>
+            <div class="solutions-content">
+              <div class="solutions-list">
+                <h2> <i class="fas fa-globe"></i> Web Solutions</h2>
+                <ul>
+                    <li><a href="#real-estate"><i class="fas fa-home"></i>Real Estate Websites<span><i class="fas fa-arrow-right"></i></span></a></li>
+                    <li><a href="#tourism"><i class="fas fa-plane"></i>Tourism Portals <span><i class="fas fa-arrow-right"></i></span></a></li>
+                    <li><a href="#portfolios"><i class="fas fa-briefcase"></i>Professional Portfolios <span><i class="fas fa-arrow-right"></i></span></a></li>
+                    <li><a href="#health"><i class="fas fa-heartbeat"></i>Healthcare Platforms <span><i class="fas fa-arrow-right"></i></span></a></li>
+                    <li><a href="#ecommerce"><i class="fas fa-shopping-cart"></i>E-commerce Solutions<span><i class="fas fa-arrow-right"></i></span></a></li>
+                    <li><a href="#affiliate"><i class="fas fa-handshake"></i>Affiliate Marketing Websites <span><i class="fas fa-arrow-right"></i></span></a></li>
+                    <li><a href="#education"><i class="fas fa-graduation-cap"></i>Educational Platforms <span><i class="fas fa-arrow-right"></i></span></a></li>
+                    <li><a href="#company-portal"><i class="fas fa-building"></i>Company Portals <span><i class="fas fa-arrow-right"></i></span></a></li>
+                    <li><a href="#blog"><i class="fas fa-blog"></i>Blog Websites <span><i class="fas fa-arrow-right"></i></span></a></li>
+                    <li><a href="#nonprofit"><i class="fas fa-hand-holding-heart"></i>Non-profit Organization Sites <span><i class="fas fa-arrow-right"></i></span></a></li>
+                </ul>
+
+                <h2> <i class="fas fa-palette"></i> Design Services</h2>
+                <ul>
+                    <li><a href="#graphic-design"><i class="fas fa-pencil-alt"></i> Graphic Design <span><i class="fas fa-arrow-right"></i></span></a></li>
+                    <li><a href="#logo-design"><i class="fas fa-vector-square"></i>Logo Design <span><i class="fas fa-arrow-right"></i></span></a></li>
+                    <li><a href="#photography"><i class="fas fa-camera"></i>Professional Photography <span><i class="fas fa-arrow-right"></i></span></a></li>
+                </ul>
+
+                <h2>Tech Services</h2>
+                <ul>
+                    <li><a href="#app-development"> <i class="fas fa-mobile-alt"></i>Mobile App Development <span><i class="fas fa-arrow-right"></i></span></a></li>
+                    <li><a href="#seo"><i class="fas fa-search"></i>Search Engine Optimization <span><i class="fas fa-arrow-right"></i></span></a></li>
+                    <li><a href="#cybersecurity"><i class="fas fa-shield-alt"></i> Cybersecurity Solutions <span><i class="fas fa-arrow-right"></i></span></i></a></li>
+                    <li><a href="#cloud"><i class="fas fa-cloud"></i> Cloud Computing Services <span><i class="fas fa-arrow-right"></i></span></a></li>
+                    <li><a href="#ai-ml"> <i class="fas fa-brain"></i> AI and Machine Learning Integration <span><i class="fas fa-arrow-right"></i></span> </a></li>
+                    <li><a href="#iot"> <i class="fas fa-wifi"></i> Internet of Things (IoT) Integration <span><i class="fas fa-arrow-right"></i></span></a></li>
+                    <li><a href="#mpesa"><i class="fas fa-money-bill-wave"></i> Mpesa Integration <span><i class="fas fa-arrow-right"></i></span></a></li>
+                </ul>
+            </div>
+                <div class="solutions-description">
+                    <h2>Empowering Your Digital Journey</h2>
+                    <img src="own.png" alt="">
+                    <p>At HighTech Quantum, we offer a comprehensive suite of digital solutions tailored to elevate your business in the modern digital landscape. Our expert team combines cutting-edge technology with creative design to bring your vision to life, ensuring your online presence stands out in today's competitive market.</p>
+                    
+                    <h3>HighTech SkillLab</h3>
+                    <p>Unlock your potential with HighTech SkillLab, our innovative learning platform. We're committed to nurturing talent and fostering growth in the tech industry. Through HighTech SkillLab, you can gain hands-on experience with the latest technologies, preparing you for the exciting challenges of the digital future.</p>
+                    
+                    <p>Whether you're a beginner looking to start your tech journey or a professional aiming to upskill, HighTech SkillLab offers courses and workshops designed to meet your needs and help you stay ahead in the rapidly evolving tech landscape.</p>
+                </div>
+               
+            </div>
+            <div class="contact-container">
+                <h2>Ready to Transform Your Digital Presence?</h2>
+                <p>Let's discuss how we can bring your ideas to life and propel your business forward in the digital realm. Our team of experts is ready to create tailored solutions that meet your unique needs and goals.</p>
+                <a href="#contact" class="btn btn-primary">Contact Us Today</a>
+            </div>
         </div>
-        <div class="course-content">
-          <h3 class="course-title">Introduction to Coding</h3>
-          <p class="course-description">Learn the fundamentals of programming and build your first simple applications.</p>
-          <a href="#" class="course-link">Enroll</a>
-        </div>
-      </div>
-      <div class="course-card">
-        <div class="course-image">
-          <img src="https://via.placeholder.com/300x200" alt="Web Development Basics">
-        </div>
-        <div class="course-content">
-          <h3 class="course-title">Web Development Basics</h3>
-          <p class="course-description">Gain a solid foundation in HTML, CSS, and JavaScript to create responsive and interactive websites.</p>
-          <a href="#" class="course-link">Enroll</a>
-        </div>
-      </div>
-      <div class="course-card">
-        <div class="course-image">
-          <img src="https://via.placeholder.com/300x200" alt="Database Fundamentals">
-        </div>
-        <div class="course-content">
-          <h3 class="course-title">Database Fundamentals</h3>
-          <p class="course-description">Understand the principles of database management and learn to design and query databases.</p>
-          <a href="#" class="course-link">Enroll</a>
-        </div>
-      </div>
-      <div class="course-card">
-        <div class="course-image">
-          <img src="https://via.placeholder.com/300x200" alt="Introduction to Machine Learning">
-        </div>
-        <div class="course-content">
-          <h3 class="course-title">Introduction to Machine Learning</h3>
-          <p class="course-description">Dive into the world of machine learning and learn the fundamentals of algorithms that power intelligent systems.</p>
-          <a href="#" class="course-link">Enroll</a>
-        </div>
-      </div>
-      <div class="course-card">
-        <div class="course-image">
-          <img src="https://via.placeholder.com/300x200" alt="Advanced Web Development">
-        </div>
-        <div class="course-content">
-          <h3 class="course-title">Advanced Web Development</h3>
-          <p class="course-description">Take your web development skills to the next level and master modern technologies and frameworks.</p>
-          <div class="course-branches">
-            <a href="#" class="course-link">Front-End Development</a>
-            <a href="#" class="course-link">Back-End Development</a>
-            <a href="#" class="course-link">Full-Stack Development</a>
-          </div>
-          <a href="#" class="course-link">Enroll</a>
-        </div>
-      </div>
-      <div class="course-card">
-        <div class="course-image">
-          <img src="https://via.placeholder.com/300x200" alt="Cybersecurity Fundamentals">
-        </div>
-        <div class="course-content">
-          <h3 class="course-title">Cybersecurity Fundamentals</h3>
-          <p class="course-description">Protect your digital assets by learning the essential concepts and best practices in cybersecurity.</p>
-          <div class="course-branches">
-            <a href="#" class="course-link">Network Security</a>
-            <a href="#" class="course-link">Ethical Hacking</a>
-            <a href="#" class="course-link">Incident Response</a>
-          </div>
-          <a href="#" class="course-link">Enroll</a>
-        </div>
-      </div>
-      <div class="course-card">
-        <div class="course-image">
-          <img src="https://via.placeholder.com/300x200" alt="Data Science with Python">
-        </div>
-        <div class="course-content">
-          <h3 class="course-title">Data Science with Python</h3>
-          <p class="course-description">Harness the power of Python to analyze, visualize, and extract insights from complex data sets.</p>
-          <a href="#" class="course-link">Enroll</a>
-        </div>
-      </div>
-      <div class="course-card">
-        <div class="course-image">
-          <img src="https://via.placeholder.com/300x200" alt="Blockchain Development">
-        </div>
-        <div class="course-content">
-          <h3 class="course-title">Blockchain Development</h3>
-          <p class="course-description">Unlock the potential of decentralized applications and learn the fundamentals of blockchain technology.</p>
-          <a href="#" class="course-link">Enroll</a>
-        </div>
-      </div>
-      <div class="course-card">
-        <div class="course-image">
-          <img src="https://via.placeholder.com/300x200" alt="Artificial Intelligence and Deep Learning">
-        </div>
-        <div class="course-content">
-          <h3 class="course-title">Artificial Intelligence and Deep Learning</h3>
-          <p class="course-description">Explore the cutting edge of AI and deep learning, and learn to build advanced neural networks.</p>
-          <a href="#" class="course-link">Enroll</a>
-        </div>
-      </div>
-    </div>
-  </section>
+    </main>
+
+    <!-- Include  existing footer here -->
+
+    <script src="script.js"></script>
+</body>
 </html>
