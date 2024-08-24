@@ -126,21 +126,23 @@
           <div class="teams-member">
               <div class="members-card">
                   <div class="members-front">
-                      <img src="sarah-chen.jpg" alt="Sarah Chen">
-                      <h3>Sarah Chen</h3>
-                      <p>Quantum Pioneer</p>
+                      <img src="bp.jpg" alt="Sarah Chen">
+                      <h3>BrianPaul Gitonga</h3>
+                      <p>Quantum Pioneer & Tech Visionary</p>
                       <div class="social-links">
                           <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
                           <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
                       </div>
                   </div>
                   <div class="members-back">
-                      <p>"Reshaping reality, one qubit at a time."</p>
+                      <p>"Transforming ideas into digital realities through code and leadership."</p>
                       <ul class="members-skills">
-                          <li>Quantum Computing</li>
-                          <li>Strategic Leadership</li>
-                          <li>Future-Tech Vision</li>
+                        <li>Web Development</li>
+                        <li>Graphic Design</li>
+                        <li>Software Engineering</li>
+                        <li>Strategic Leadership</li>
                       </ul>
+                      <p>As CEO and lead engineer, BrianPaul drives innovation with his passion for coding and design. He oversees projects from concept to completion, ensuring top-notch software solutions that exceed client expectations.</p>
                       <div class="social-links">
                           <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
                           <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
@@ -374,109 +376,7 @@
   </div>
 </footer>
 
-<script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-      const header = document.querySelector('header');
-      const scrollWatcher = () => {
-        if (window.scrollY > 100) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
-        }
-      };
-      window.addEventListener('scroll', scrollWatcher);
-
-      // Counting effect
-      const countElements = document.querySelectorAll('.count');
-      const speed = 200; // The lower the faster
-
-      const counter = (target, element) => {
-        const updateCount = () => {
-          const count = +element.innerText;
-          const inc = target / speed;
-
-          if (count < target) {
-            element.innerText = Math.ceil(count + inc);
-            setTimeout(updateCount, 1);
-          } else {
-            element.innerText = target;
-          }
-        };
-
-        updateCount();
-      };
-
-      const handleIntersection = (entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const target = +entry.target.getAttribute('data-target');
-            counter(target, entry.target);
-            observer.unobserve(entry.target);
-          }
-        });
-      };
-
-      const observer = new IntersectionObserver(handleIntersection, {
-        threshold: 0.5
-      });
-
-      countElements.forEach(el => observer.observe(el));
-    });
-  </script>
-  <script>
-    
-document.querySelectorAll('.question').forEach(question => {
-      question.addEventListener('click', () => {
-        const item = question.parentNode;
-        item.classList.toggle('active');
-      });
-    });
-    
-    document.addEventListener('DOMContentLoaded', () => {
-  const header = document.getElementById('main-header');
-  const topBar = document.querySelector('.top-bar');
-  const hamburger = document.querySelector('.hamburger-menu');
-  const nav = document.querySelector('nav');
-  let lastScrollTop = 0, ticking = false;
-
-  const updateHeader = () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const topBarHeight = topBar ? topBar.offsetHeight : 0;
-
-    if (scrollTop > topBarHeight) {
-      if (!header.classList.contains('fixed')) {
-        header.classList.add('fixed');
-        document.body.classList.add('header-fixed');
-        document.body.style.paddingTop = `${header.offsetHeight + topBarHeight}px`;
-      }
-    } else {
-      header.classList.remove('fixed');
-      document.body.classList.remove('header-fixed');
-      document.body.style.paddingTop = '0';
-    }
-
-    lastScrollTop = scrollTop;
-    ticking = false;
-  };
-
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        updateHeader();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
-
-  window.addEventListener('resize', updateHeader);
-  updateHeader();
-
-
-});
-
-  </script>
-  
   <script src="script.js"></script>
+  <script src="set.js"></script>
 </body>
 </html>

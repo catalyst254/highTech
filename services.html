@@ -189,58 +189,7 @@
 </footer>
 
     <script src="script.js"></script>
-     <script>
-    
-document.querySelectorAll('.question').forEach(question => {
-      question.addEventListener('click', () => {
-        const item = question.parentNode;
-        item.classList.toggle('active');
-      });
-    });
-    
-    document.addEventListener('DOMContentLoaded', () => {
-  const header = document.getElementById('main-header');
-  const topBar = document.querySelector('.top-bar');
-  const hamburger = document.querySelector('.hamburger-menu');
-  const nav = document.querySelector('nav');
-  let lastScrollTop = 0, ticking = false;
+    <script src="set.js"></script>
 
-  const updateHeader = () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const topBarHeight = topBar ? topBar.offsetHeight : 0;
-
-    if (scrollTop > topBarHeight) {
-      if (!header.classList.contains('fixed')) {
-        header.classList.add('fixed');
-        document.body.classList.add('header-fixed');
-        document.body.style.paddingTop = `${header.offsetHeight + topBarHeight}px`;
-      }
-    } else {
-      header.classList.remove('fixed');
-      document.body.classList.remove('header-fixed');
-      document.body.style.paddingTop = '0';
-    }
-
-    lastScrollTop = scrollTop;
-    ticking = false;
-  };
-
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        updateHeader();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
-
-  window.addEventListener('resize', updateHeader);
-  updateHeader();
-
-
-});
-
-  </script>
 </body>
 </html>

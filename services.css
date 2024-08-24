@@ -15,7 +15,7 @@
 /* Solutions List */
 .solutions-list {
     flex: 1;
-    background: rgb(250, 100, 120);
+    background: rgba(250, 92, 113, 0.767);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 0 20px rgb(0, 255, 255);

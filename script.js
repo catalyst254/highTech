@@ -85,26 +85,6 @@ document.querySelectorAll('.question').forEach(question => {
   const nav = document.querySelector('nav');
   let lastScrollTop = 0, ticking = false;
 
-  const updateHeader = () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const topBarHeight = topBar ? topBar.offsetHeight : 0;
-
-    if (scrollTop > topBarHeight) {
-      if (!header.classList.contains('fixed')) {
-        header.classList.add('fixed');
-        document.body.classList.add('header-fixed');
-        document.body.style.paddingTop = `${header.offsetHeight + topBarHeight}px`;
-      }
-    } else {
-      header.classList.remove('fixed');
-      document.body.classList.remove('header-fixed');
-      document.body.style.paddingTop = '0';
-    }
-
-    lastScrollTop = scrollTop;
-    ticking = false;
-  };
-
   window.addEventListener('scroll', () => {
     if (!ticking) {
       window.requestAnimationFrame(() => {
@@ -140,4 +120,31 @@ document.querySelectorAll('.question').forEach(question => {
         },
       });
 
+      document.addEventListener('DOMContentLoaded', function() {
+        const header = document.getElementById('main-header');
+        const topBar = document.querySelector('.top-bar');
+        let headerHeight = header.offsetHeight;
+        let topBarHeight = topBar.offsetHeight;
+        let lastScrollTop = 0;
+    
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+            if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
+                // Scrolling down
+                header.style.position = 'fixed';
+                header.style.top = '0';
+                header.style.left = '0';
+                header.style.right = '0';
+                header.style.zIndex = '1000';
+                topBar.style.marginBottom = headerHeight + 'px';
+            } else if (scrollTop <= headerHeight) {
+                // Scrolled back to top
+                header.style.position = 'static';
+                topBar.style.marginBottom = '0';
+            }
+    
+            lastScrollTop = scrollTop;
+        });
+    });
       
