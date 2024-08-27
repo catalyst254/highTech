@@ -14,7 +14,7 @@ body {
   transition: width 0.3s;
   overflow: hidden;
   position: fixed;
-  z-index: 1000;
+  z-index: 10000;
 }
 
 .sidenav:hover {
@@ -84,43 +84,56 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  border-radius: 1%;
-  box-shadow: -4px 4px 6px rgba(0, 0, 0, 0.1);
-  animation: bounce 0.5s ease infinite alternate;
-}
-
-h1 span {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  font-size: 2.5rem;
-  text-shadow: 1px 1px 3px rgb(0, 0, 0); 
-}
-
-button {
-  background-color: orangered;
-  border: none;
-  color: #ffffff;
   padding: 10px 20px;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #0004ff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.top h1 {
+  margin: 0;
   font-size: 1.5rem;
-  border-radius: 10%;
+  text-align: center;
+}
+
+.top h1 span {
+  color: #007bff;
+  margin-left: 100px;
+}
+
+.user-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-icon {
+  font-size: 1.5rem;
+  color: #6c757d;
+}
+
+.login-btn, .logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s;
+  font-size: 0.9rem;
 }
 
-button:hover {
-  background-color: #34495e;
-  color: #00ffea;
-  transform: scale(1.05);
+.login-btn:hover, .logout-btn:hover {
+  background-color: #0056b3;
 }
 
-@keyframes bounce {
-  from {
-      transform: translateY(0);
-  }
-  to {
-      transform: translateY(-5px);
-  }
+.login-btn i, .logout-btn i {
+  font-size: 1rem;
 }
 
 .content {
@@ -155,12 +168,50 @@ h1, h2 {
 .cta-button:hover {
   background-color: #2980b9;
 }
+
 @media screen and (max-width: 768px) {
-  h1 span{
-      font-size: 24px;
+  .top {
+      flex-direction: column;
+      align-items: flex-start;
   }
-  button{
-      font-size: 18px;
+
+  .top h1 {
+      margin-bottom: 10px;
+  }
+
+  .top h1 span {
+      font-size: 24px;
+      margin-left: 0;
+  }
+
+  .user-controls {
+      width: 100%;
+      justify-content: space-between;
+  }
+  
+  .content {
+      margin-left: 0;
+      padding: 15px;
+  }
+
+  .cta-button {
+      display: block;
+      text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .top h1 {
+      font-size: 1.2rem;
+  }
+
+  .user-icon {
+      font-size: 1.2rem;
+  }
+
+  .login-btn, .logout-btn {
+      font-size: 14px;
+      padding: 5px 8px;
   }
 }
 
@@ -343,10 +394,6 @@ h1, h2 {
 }
 
 /* Our Courses Section */
-.section#courses {
-  padding: 50px 0;
-  overflow-x: hidden;
-}
 
 .section#courses .courses-description {
   font-size: 18px;
