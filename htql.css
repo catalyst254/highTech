@@ -171,8 +171,9 @@ h1, h2 {
 
 @media screen and (max-width: 768px) {
   .top {
-      flex-direction: column;
+      flex-direction: row;
       align-items: flex-start;
+      justify-content: space-between;
   }
 
   .top h1 {
@@ -183,12 +184,6 @@ h1, h2 {
       font-size: 24px;
       margin-left: 0;
   }
-
-  .user-controls {
-      width: 100%;
-      justify-content: space-between;
-  }
-  
   .content {
       margin-left: 0;
       padding: 15px;
@@ -197,6 +192,9 @@ h1, h2 {
   .cta-button {
       display: block;
       text-align: center;
+  }
+  .sidenav{
+    display: non;
   }
 }
 
