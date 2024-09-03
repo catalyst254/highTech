@@ -160,7 +160,7 @@ header h2{
 }
 
 .logo img {
-  max-height: 50px;
+  max-height: 80px;
   width: auto;
 }
 
@@ -238,9 +238,7 @@ nav ul li a:hover {
   }
 
   header h2 {
-    margin-right: 0;
-    font-size: 1.4rem;
-    margin-right: 40px;
+     display: none;
   }
 
   .logo {
@@ -290,6 +288,7 @@ nav ul li a:hover {
   }
   
 }
+
 
 /* background */
 .animated-bg {

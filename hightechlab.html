@@ -3,17 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HighTech Lab</title>
+    <title>iTech skilLab</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="htql.css">
 </head>
 <body>
-    <nav class="sidenav">
-
-        <div class="nav-title">
-            <i class="fas fa-atom"></i>
-            <span>iTech skilLab</span>
+    <header class="header">
+        <div class="hamburger">&#9776;</div>
+        <div class="header-title">iTech SkillLab / <span id="current-page">Home</span></div>
+        <nav class="header-nav">
+            <i class="fas fa-envelope"></i>
+            <i class="fas fa-bell"></i>
+            <div class="user-greeting">Hello, <span id="user-name">User</span></div>
+            <div class="user-dropdown">
+                <i class="fas fa-user"></i>
+                <div class="user-dropdown-content">
+                    <a href="#">Edit Profile</a>
+                    <a href="#">Messages</a>
+                    <a href="#">Notifications</a>
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+        </nav>
+        <div class="three-dot-menu">&#8942;</div>
+        <div class="mobile-dropdown">
+            <a href="#"><i class="fas fa-envelope"></i> Messages</a>
+            <a href="#"><i class="fas fa-bell"></i> Notifications</a>
+            <a href="#"><i class="fas fa-user"></i> Profile</a>
         </div>
+    </header>
+
+    <nav class="sidenav">
         <div class="nav-item" data-section="home">
             <i class="fas fa-home"></i>
             <span>Home</span>
@@ -44,20 +64,9 @@
         </div>
     </nav>
 
-    <main class="content">
-        <!-- home -->
+   
+    <main class="main-content">
         <section id="home" class="section active">
-            <div class="top">
-                <h1><span>Home</span></h1>
-                <div class="user-controls">
-                    <i class="fas fa-bell user-icon"></i>
-                    <i class="fas fa-user user-icon"></i>
-                    <button class="login-btn">
-                        <i class="fas fa-sign-in-alt"></i>
-                        <span>Login</span>
-                    </button>
-                </div>
-            </div>
             <h1>Welcome to HighTech Lab</h1>
             <p>Explore the future of technology and innovation in our state-of-the-art digital laboratory. HighTech Lab is your gateway to cutting-edge research, learning, and development in the world of technology.</p>
             <div class="card-grid">
@@ -84,19 +93,7 @@
             </div>
         </section>
 
-            <!-- programs-->
         <section id="programs" class="section">
-            <div class="top">
-                <h1><span>Tech programs</span></h1>
-                <div class="user-controls">
-                    <i class="fas fa-bell user-icon"></i>
-                    <i class="fas fa-user user-icon"></i>
-                    <button class="login-btn">
-                        <i class="fas fa-sign-in-alt"></i>
-                        <span>Login</span>
-                    </button>
-                </div>
-            </div>
             <h1>Empowering the Next Generation of Tech Leaders</h1>
             <p class="intro">Discover our wide array of cutting-edge technology programs designed to propel your career in various tech domains.</p>
             <div class="card-grid">
@@ -154,20 +151,8 @@
                 <a href="#" class="secondary-cta">Download Program Catalog</a>
             </div>
         </section>
-        
-        <!-- Our solutions -->
+
         <section id="solutions" class="section">
-            <div class="top">
-                <h1><span>Our Solutions</span></h1>
-                <div class="user-controls">
-                    <i class="fas fa-bell user-icon"></i>
-                    <i class="fas fa-user user-icon"></i>
-                    <button class="login-btn">
-                        <i class="fas fa-sign-in-alt"></i>
-                        <span>Login</span>
-                    </button>
-                </div>
-            </div>
             <p>Discover innovative technological solutions to address modern challenges.</p>
             <div class="card-grid">
                 <div class="card">
@@ -188,137 +173,113 @@
             </div>
         </section>
 
- <!-- Our Courses -->
-<section id="courses" class="section">
-    <div class="top">
-        <h1><span>Our Courses</span></h1>
-        <div class="user-controls">
-            <i class="fas fa-bell user-icon"></i>
-            <i class="fas fa-user user-icon"></i>
-            <button class="login-btn">
-                <i class="fas fa-sign-in-alt"></i>
-                <span>Login</span>
-            </button>
-        </div>
-    </div>
-    <p class="courses-description">Unlock your potential with our diverse range of expert-led technology courses.</p>
-    <div class="courses-grid">
-      <div class="course-card">
-        <div class="course-image">
-          <img src="coding.png" alt="Introduction to Coding">
-        </div>
-        <div class="course-content">
-          <h3 class="course-title">Introduction to Coding</h3>
-          <p class="course-description">Learn the fundamentals of programming and build your first simple applications.</p>
-          <a href="#" class="course-link">Enroll</a>
-        </div>
-      </div>
-      <div class="course-card">
-        <div class="course-image">
-          <img src="web2.png" alt="Web Development Basics">
-        </div>
-        <div class="course-content">
-          <h3 class="course-title">Web Development Basics</h3>
-          <p class="course-description">Gain a solid foundation in HTML, CSS, and JavaScript to create responsive and interactive websites.</p>
-          <a href="#" class="course-link">Enroll</a>
-        </div>
-      </div>
-      <div class="course-card">
-        <div class="course-image">
-          <img src="data2.png" alt="Database Fundamentals">
-        </div>
-        <div class="course-content">
-          <h3 class="course-title">Database Fundamentals</h3>
-          <p class="course-description">Understand the principles of database management and learn to design and query databases.</p>
-          <a href="#" class="course-link">Enroll</a>
-        </div>
-      </div>
-      <div class="course-card">
-        <div class="course-image">
-          <img src="machine.png" alt="Introduction to Machine Learning">
-        </div>
-        <div class="course-content">
-          <h3 class="course-title">Introduction to Machine Learning</h3>
-          <p class="course-description">Dive into the world of machine learning and learn the fundamentals of algorithms that power intelligent systems.</p>
-          <a href="#" class="course-link">Enroll</a>
-        </div>
-      </div>
-      <div class="course-card">
-        <div class="course-image">
-          <img src="advance.png" alt="Advanced Web Development">
-        </div>
-        <div class="course-content">
-          <h3 class="course-title">Advanced Web Development</h3>
-          <p class="course-description">Take your web development skills to the next level and master modern technologies and frameworks.</p>
-          <div class="course-branches">
-            <a href="#" class="course-branch">Front-End Development</a>
-            <a href="#" class="course-branch">Back-End Development</a>
-            <a href="#" class="course-branch">Full-Stack Development</a>
-          </div>
-          <a href="#" class="course-link">Enroll</a>
-        </div>
-      </div>
-      <div class="course-card">
-        <div class="course-image">
-          <img src="cyber.png" alt="Cybersecurity Fundamentals">
-        </div>
-        <div class="course-content">
-          <h3 class="course-title">Cybersecurity Fundamentals</h3>
-          <p class="course-description">Protect your digital assets by learning the essential concepts and best practices in cybersecurity.</p>
-          <div class="course-branches">
-            <a href="#" class="course-branch">Network Security</a>
-            <a href="#" class="course-branch">Ethical Hacking</a>
-            <a href="#" class="course-branch">Incident Response</a>
-          </div>
-          <a href="#" class="course-link">Enroll</a>
-        </div>
-      </div>
-      <div class="course-card">
-        <div class="course-image">
-          <img src="python.png" alt="Data Science with Python">
-        </div>
-        <div class="course-content">
-          <h3 class="course-title">Data Science with Python</h3>
-          <p class="course-description">Harness the power of Python to analyze, visualize, and extract insights from complex data sets.</p>
-          <a href="#" class="course-link">Enroll</a>
-        </div>
-      </div>
-      <div class="course-card">
-        <div class="course-image">
-          <img src="block.png" alt="Blockchain Development">
-        </div>
-        <div class="course-content">
-          <h3 class="course-title">Blockchain Development</h3>
-          <p class="course-description">Unlock the potential of decentralized applications and learn the fundamentals of blockchain technology.</p>
-          <a href="#" class="course-link">Enroll</a>
-        </div>
-      </div>
-      <div class="course-card">
-        <div class="course-image">
-          <img src="ai2.png" alt="Artificial Intelligence and Deep Learning">
-        </div>
-        <div class="course-content">
-          <h3 class="course-title">Artificial Intelligence and Deep Learning</h3>
-          <p class="course-description">Explore the cutting edge of AI and deep learning, and learn to build advanced neural networks.</p>
-          <a href="#" class="course-link">Enroll</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-        <!-- user Lab -->
-        <section id="my-lab" class="section">
-            <div class="top">
-                <h1><span>User Lab</span></h1>
-                <div class="user-controls">
-                    <i class="fas fa-bell user-icon"></i>
-                    <i class="fas fa-user user-icon"></i>
-                    <button class="login-btn">
-                        <i class="fas fa-sign-in-alt"></i>
-                        <span>Login</span>
-                    </button>
+        <section id="courses" class="section">
+            <p class="courses-description">Unlock your potential with our diverse range of expert-led technology courses.</p>
+            <div class="courses-grid">
+                <div class="course-card">
+                  <div class="course-image">
+                    <img src="coding.png" alt="Introduction to Coding">
+                  </div>
+                  <div class="course-content">
+                    <h3 class="course-title">Introduction to Coding</h3>
+                    <p class="course-description">Learn the fundamentals of programming and build your first simple applications.</p>
+                    <a href="#" class="course-link">Enroll</a>
+                  </div>
                 </div>
-            </div>
+                <div class="course-card">
+                  <div class="course-image">
+                    <img src="web2.png" alt="Web Development Basics">
+                  </div>
+                  <div class="course-content">
+                    <h3 class="course-title">Web Development Basics</h3>
+                    <p class="course-description">Gain a solid foundation in HTML, CSS, and JavaScript to create responsive and interactive websites.</p>
+                    <a href="#" class="course-link">Enroll</a>
+                  </div>
+                </div>
+                <div class="course-card">
+                  <div class="course-image">
+                    <img src="data2.png" alt="Database Fundamentals">
+                  </div>
+                  <div class="course-content">
+                    <h3 class="course-title">Database Fundamentals</h3>
+                    <p class="course-description">Understand the principles of database management and learn to design and query databases.</p>
+                    <a href="#" class="course-link">Enroll</a>
+                  </div>
+                </div>
+                <div class="course-card">
+                  <div class="course-image">
+                    <img src="machine.png" alt="Introduction to Machine Learning">
+                  </div>
+                  <div class="course-content">
+                    <h3 class="course-title">Introduction to Machine Learning</h3>
+                    <p class="course-description">Dive into the world of machine learning and learn the fundamentals of algorithms that power intelligent systems.</p>
+                    <a href="#" class="course-link">Enroll</a>
+                  </div>
+                </div>
+                <div class="course-card">
+                  <div class="course-image">
+                    <img src="advance.png" alt="Advanced Web Development">
+                  </div>
+                  <div class="course-content">
+                    <h3 class="course-title">Advanced Web Development</h3>
+                    <p class="course-description">Take your web development skills to the next level and master modern technologies and frameworks.</p>
+                    <div class="course-branches">
+                      <a href="#" class="course-branch">Front-End Development</a>
+                      <a href="#" class="course-branch">Back-End Development</a>
+                      <a href="#" class="course-branch">Full-Stack Development</a>
+                    </div>
+                    <a href="#" class="course-link">Enroll</a>
+                  </div>
+                </div>
+                <div class="course-card">
+                  <div class="course-image">
+                    <img src="cyber.png" alt="Cybersecurity Fundamentals">
+                  </div>
+                  <div class="course-content">
+                    <h3 class="course-title">Cybersecurity Fundamentals</h3>
+                    <p class="course-description">Protect your digital assets by learning the essential concepts and best practices in cybersecurity.</p>
+                    <div class="course-branches">
+                      <a href="#" class="course-branch">Network Security</a>
+                      <a href="#" class="course-branch">Ethical Hacking</a>
+                      <a href="#" class="course-branch">Incident Response</a>
+                    </div>
+                    <a href="#" class="course-link">Enroll</a>
+                  </div>
+                </div>
+                <div class="course-card">
+                  <div class="course-image">
+                    <img src="python.png" alt="Data Science with Python">
+                  </div>
+                  <div class="course-content">
+                    <h3 class="course-title">Data Science with Python</h3>
+                    <p class="course-description">Harness the power of Python to analyze, visualize, and extract insights from complex data sets.</p>
+                    <a href="#" class="course-link">Enroll</a>
+                  </div>
+                </div>
+                <div class="course-card">
+                  <div class="course-image">
+                    <img src="block.png" alt="Blockchain Development">
+                  </div>
+                  <div class="course-content">
+                    <h3 class="course-title">Blockchain Development</h3>
+                    <p class="course-description">Unlock the potential of decentralized applications and learn the fundamentals of blockchain technology.</p>
+                    <a href="#" class="course-link">Enroll</a>
+                  </div>
+                </div>
+                <div class="course-card">
+                  <div class="course-image">
+                    <img src="ai2.png" alt="Artificial Intelligence and Deep Learning">
+                  </div>
+                  <div class="course-content">
+                    <h3 class="course-title">Artificial Intelligence and Deep Learning</h3>
+                    <p class="course-description">Explore the cutting edge of AI and deep learning, and learn to build advanced neural networks.</p>
+                    <a href="#" class="course-link">Enroll</a>
+                  </div>
+                </div>
+              </div>
+        </section>
+
+        <section id="my-lab" class="section">
             <div class="lab-content not-logged-in">
                 <div class="welcome-container">
                     <h2 class="welcome-heading">Welcome to Your <span class="highlight">Future Lab Space</span></h2>
@@ -341,139 +302,69 @@
                     </div>
                 </div>
             </div>
-        
             <div class="lab-content logged-in">
-                <h2>Welcome back, <span class="user-name">User</span>!</h2>
-                <div class="lab-dashboard">
-                    <div class="card">
-                        <h3>Ongoing Projects</h3>
-                        <ul class="project-list">
-                            <li>AI Chatbot Development</li>
-                            <li>IoT Home Automation</li>
-                        </ul>
-                        <button class="cta-button">Manage Projects</button>
-                    </div>
-                    <div class="card">
-                        <h3>Recent Resources</h3>
-                        <ul class="resource-list">
-                            <li>Intro to Machine Learning</li>
-                            <li>Advanced Python Programming</li>
-                        </ul>
-                        <button class="cta-button">View All Resources</button>
-                    </div>
-                    <div class="card">
-                        <h3>Lab Stats</h3>
-                        <p>Projects Completed: 5</p>
-                        <p>Courses Taken: 3</p>
-                        <p>Lab Hours: 120</p>
-                    </div>
-                </div>
+                <!-- ... (keep the existing my-lab content) ... -->
             </div>
-          </section>
-
-
-        <!-- organizations -->
-        <section id="organizations" class="section">
-            <div class="top">
-                <h1><span>Organizations</span></h1>
-                <div class="user-controls">
-                    <i class="fas fa-bell user-icon"></i>
-                    <i class="fas fa-user user-icon"></i>
-                    <button class="login-btn">
-                        <i class="fas fa-sign-in-alt"></i>
-                        <span>Login</span>
-                    </button>
-                </div>
-            </div>
-            <h2></h2>
-            <p>Explore partner organizations and collaboration opportunities.</p>
-            <!-- Add content for Organizations section -->
         </section>
 
-        <!--  resources -->
+        <section id="organizations" class="section">
+            <h2>Organizations</h2>
+            <p>Explore partner organizations and collaboration opportunities.</p>
+            <!-- Add more content for Organizations section -->
+        </section>
+
         <section id="resources" class="section">
-            <div class="top">
-                <h1><span>Resources</span></h1>
-                <div class="user-controls">
-                    <i class="fas fa-bell user-icon"></i>
-                    <i class="fas fa-user user-icon"></i>
-                    <button class="login-btn">
-                        <i class="fas fa-sign-in-alt"></i>
-                        <span>Login</span>
-                    </button>
-                </div>
-            </div>
-            <h2></h2>
+            <h2>HighTech Resources</h2>
             <p>Access a wealth of tech resources and learning materials.</p>
-            <!-- Add content for HighTech Resources section -->
+            <!-- Add more content for HighTech Resources section -->
         </section>
     </main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const navItems = document.querySelectorAll('.nav-item');
-            const sections = document.querySelectorAll('.section');
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const navItems = document.querySelectorAll('.nav-item');
+    const currentPage = document.getElementById('current-page');
+    const hamburger = document.querySelector('.hamburger');
+    const threeDotsMenu = document.querySelector('.three-dot-menu');
+    const sidenav = document.querySelector('.sidenav');
+    const headerNav = document.querySelector('.header-nav');
+    const mobileDropdown = document.querySelector('.mobile-dropdown');
+    const sections = document.querySelectorAll('.section');
 
-            navItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    const sectionId = this.getAttribute('data-section');
-                    sections.forEach(section => {
-                        section.classList.remove('active');
-                    });
-                    document.getElementById(sectionId).classList.add('active');
-                });
-            });
-        });
-        
-    </script>
-    <!--lab-->
-      <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const loginBtn = document.querySelector('.login-btn');
-            const signupBtn = document.querySelector('.signup-btn');
-            const logoutBtn = document.querySelector('.logout-btn');
-            const notLoggedInContent = document.querySelector('.not-logged-in');
-            const loggedInContent = document.querySelector('.logged-in');
-    
-            function showLoggedInContent() {
-                notLoggedInContent.style.display = 'none';
-                loggedInContent.style.display = 'block';
-                loginBtn.style.display = 'none';
-                logoutBtn.style.display = 'inline-block';
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const sectionName = this.querySelector('span').textContent;
+            const sectionId = this.getAttribute('data-section');
+            currentPage.textContent = sectionName;
+
+            // Hide all sections and show the selected one
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+
+            if (window.innerWidth <= 768) {
+                sidenav.classList.remove('show');
             }
-    
-            function showNotLoggedInContent() {
-                notLoggedInContent.style.display = 'block';
-                loggedInContent.style.display = 'none';
-                loginBtn.style.display = 'inline-block';
-                logoutBtn.style.display = 'none';
-            }
-    
-            loginBtn.addEventListener('click', function() {
-                // Placeholder for actual login logic
-                const userName = prompt("Enter your name:");
-                if (userName) {
-                    document.querySelector('.user-name').innerText = userName;
-                    showLoggedInContent();
-                }
-            });
-    
-            signupBtn.addEventListener('click', function() {
-                // Placeholder for actual signup logic
-                const userName = prompt("Enter your name:");
-                if (userName) {
-                    document.querySelector('.user-name').innerText = userName;
-                    showLoggedInContent();
-                }
-            });
-    
-            logoutBtn.addEventListener('click', showNotLoggedInContent);
-    
-            // Initially show the not-logged-in content
-            showNotLoggedInContent();
         });
-      </script>
-      
-    
+    });
+
+    hamburger.addEventListener('click', function() {
+        sidenav.classList.toggle('show');
+    });
+
+    threeDotsMenu.addEventListener('click', function() {
+        mobileDropdown.style.display = mobileDropdown.style.display === 'block' ? 'none' : 'block';
+    });
+
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            sidenav.classList.remove('show');
+            headerNav.style.display = 'flex';
+            mobileDropdown.style.display = 'none';
+        } else {
+            headerNav.style.display = 'none';
+        }
+    });
+});
+   </script>
 </body>
 </html>
