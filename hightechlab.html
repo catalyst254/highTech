@@ -331,6 +331,7 @@
     const headerNav = document.querySelector('.header-nav');
     const mobileDropdown = document.querySelector('.mobile-dropdown');
     const sections = document.querySelectorAll('.section');
+    const content = document.querySelector('.content');
 
     navItems.forEach(item => {
         item.addEventListener('click', function() {
@@ -350,6 +351,10 @@
 
     hamburger.addEventListener('click', function() {
         sidenav.classList.toggle('show');
+
+        if (window.innerWidth > 768) {
+            content.classList.toggle('squeezed');
+        }
     });
 
     threeDotsMenu.addEventListener('click', function() {
@@ -359,13 +364,14 @@
     window.addEventListener('resize', function() {
         if (window.innerWidth > 768) {
             sidenav.classList.remove('show');
-            headerNav.style.display = 'flex';
+            content.classList.remove('squeezed');
             mobileDropdown.style.display = 'none';
         } else {
             headerNav.style.display = 'none';
         }
     });
 });
+
    </script>
 </body>
 </html>

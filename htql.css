@@ -175,6 +175,10 @@ header img{
       left: 0;
   }
 
+  .sidenav:hover + .main-content{
+    margin-left: 0;
+  }
+
   .main-content {
       margin-left: 0;
   }
@@ -408,44 +412,37 @@ h1 {
 }
 
 /* Our Courses Section */
-
-.section#courses .courses-description {
-  font-size: 18px;
-  color: #666;
-  margin-bottom: 40px;
-}
-
-.section#courses .courses-grid {
+.courses-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
 }
 
-.section#courses .course-card {
+ .course-card {
   background-color: #fff;
   box-shadow: 0 4px 6px rgb(0, 0, 0);
   border-radius: 1%;
   overflow: hidden;
 }
 
-.section#courses .course-card .course-image img {
+ .course-image img {
   width: 100%;
   height: 200px;
   object-fit: cover;
 }
 
-.section#courses .course-card .course-content {
+ .course-content {
   padding: 20px;
 }
 
-.section#courses .course-card .course-title {
+.course-title {
   font-size: 20px;
   font-weight: 600;
   color: #333;
   margin-bottom: 10px;
 }
 
-.section#courses .course-card .course-description {
+.course-description {
   font-size: 16px;
   color: #666;
   margin-bottom: 20px;
