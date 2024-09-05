@@ -15,7 +15,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 h1, h2 {
@@ -24,37 +24,37 @@ h1, h2 {
 
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-top: 2rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 .contact-info, .contact-space {
     background-color: white;
     border-radius: 10px;
-    padding: 2rem;
+    padding: 1rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .contact-info h2, .contact-space h2 {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .info-item {
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .info-item i {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--secondary-color);
-    margin-right: 1rem;
+    margin-right: 0.5rem;
 }
 
 .contact-space form {
     display: grid;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .form-group {
@@ -75,7 +75,7 @@ button {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     border: none;
     font-weight: 600;
-    font-size: large;
+    font-size: medium;
     padding: 0.75rem;
     border-radius: 5px;
     cursor: pointer;
@@ -88,20 +88,59 @@ button:hover {
 }
 
 .map-container {
-    margin-top: 2rem;
+    margin-top: 1rem;
     border-radius: 10px;
     overflow: hidden;
 }
 
 #contact-map {
     width: 100%;
-    height: 300px;
+    height: 200px;
     border: none;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
+    .container {
+        padding: 2rem;
+    }
+
     .contact-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .contact-info, .contact-space {
+        padding: 2rem;
+    }
+
+    .contact-info h2, .contact-space h2 {
+        margin-bottom: 1rem;
+    }
+
+    .info-item {
+        margin-bottom: 1rem;
+    }
+
+    .info-item i {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+    }
+
+    .contact-space form {
+        gap: 1rem;
+    }
+
+    button {
+        font-size: large;
+    }
+
+    .map-container {
+        margin-top: 2rem;
+    }
+
+    #contact-map {
+        height: 300px;
     }
 }
 
