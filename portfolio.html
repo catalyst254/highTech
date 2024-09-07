@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - HighTech Quantum</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        .portfolio-item {
+            background: linear-gradient(145deg, #f3f3f3, #ffffff);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: -1px 10px 30px rgb(0, 0, 0), 0 1px 8px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .portfolio-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .portfolio-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom right, rgba(0, 123, 255, 0.2), rgba(123, 0, 255, 0.2));
+            z-index: 1;
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover .portfolio-image img {
+            transform: scale(1.1);
+        }
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+        .portfolio-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        .portfolio-content p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .portfolio-tag {
+            background: var(--secondary-color);
+            color: #fff;
+            padding: 0.2rem 0.5rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        .portfolio-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--primary-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .portfolio-link:hover {
+            background: var(--secondary-color);
+        }
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="contact-infom">
+            <span class="phone"><i class="fas fa-phone-alt"></i> +254 110 848 885</span>
+            <span class="email"><i class="fas fa-envelope"></i> info@gitonga.com</span>
+            <span class="hours"><i class="fas fa-clock"></i> Mon-Fri 9am-6pm</span>
+        </div>
+        <div class="social-icons">
+            <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <div class="animated-bg">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <header id="main-header"> 
+        <div class="logo">
+            <img src="logo.png" alt="Gitonga Tech Studio">
+        </div>
+        <h2>HighTech Quantum</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="dropdown">
+                  <button class="dropbtn">Go To Platforms <i class="fa fa-caret-down"></i></button>
+                  <div class="dropdown-content">
+                    <a href="hightechlab.html"><i class="fa fa-graduation-cap"></i> HighTech Lab</a>
+                    <a href="#"><i class="fas fa-tachometer-alt"></i> HighTech Dashboard</a>
+                  </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="hamburger-menu">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </header>
+
+
+    <main>
+        <section id="portfolio" class="portfolio-section">
+            <div class="container">
+                <h1 class="section-title">Our Portfolio</h1>
+                <p class="section-description">Explore our diverse range of projects that showcase our expertise and innovation.</p>
+                
+                <div class="portfolio-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="web-design">Web Design</button>
+                    <button class="filter-btn" data-filter="app-development">App Development</button>
+                    <button class="filter-btn" data-filter="e-commerce">E-commerce</button>
+                    <button class="filter-btn" data-filter="cybersecurity">Cybersecurity</button>
+                </div>
+
+                <div class="portfolio-grid">
+                    <div class="portfolio-item" data-category="web-design e-commerce">
+                        <div class="portfolio-image">
+                            <img src="own.png" alt="TechStart Innovations Website">
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>TechStart Innovations Website</h3>
+                            <p>A modern, responsive website for a tech startup, featuring dynamic content and seamless user experience.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Web Design</span>
+                                <span class="portfolio-tag">UI/UX</span>
+                            </div>
+                            <a href="#" class="portfolio-link">View Project</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="app-development">
+                        <div class="portfolio-image">
+                            <img src="green.png" alt="GreenLeaf Enterprises App">
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>GreenLeaf Enterprises App</h3>
+                            <p>An innovative mobile app for sustainable living, helping users track and reduce their carbon footprint.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">App Development</span>
+                                <span class="portfolio-tag">IoT</span>
+                            </div>
+                            <a href="#" class="portfolio-link">View Project</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="e-commerce">
+                        <div class="portfolio-image">
+                            <img src="/api/placeholder/600/400" alt="FashionForward E-commerce Platform">
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>FashionForward E-commerce Platform</h3>
+                            <p>A sleek and efficient e-commerce solution for a trendsetting fashion brand, featuring AI-powered recommendations.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">E-commerce</span>
+                                <span class="portfolio-tag">AI</span>
+                            </div>
+                            <a href="#" class="portfolio-link">View Project</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="cybersecurity">
+                        <div class="portfolio-image">
+                            <img src="/api/placeholder/600/400" alt="SecureBank Cybersecurity System">
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>SecureBank Cybersecurity System</h3>
+                            <p>A robust cybersecurity solution for a major financial institution, ensuring top-tier protection of sensitive data.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Cybersecurity</span>
+                                <span class="portfolio-tag">FinTech</span>
+                            </div>
+                            <a href="#" class="portfolio-link">View Project</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="web-design">
+                        <div class="portfolio-image">
+                            <img src="/api/placeholder/600/400" alt="HealthHub Patient Portal">
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>HealthHub Patient Portal</h3>
+                            <p>A user-friendly web portal for patients to manage appointments, view medical records, and communicate with healthcare providers.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Web Design</span>
+                                <span class="portfolio-tag">Healthcare</span>
+                            </div>
+                            <a href="#" class="portfolio-link">View Project</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item" data-category="app-development">
+                        <div class="portfolio-image">
+                            <img src="/api/placeholder/600/400" alt="EduConnect Learning Platform">
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>EduConnect Learning Platform</h3>
+                            <p>A comprehensive e-learning platform with interactive courses, progress tracking, and virtual classrooms.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">App Development</span>
+                                <span class="portfolio-tag">EdTech</span>
+                            </div>
+                            <a href="#" class="portfolio-link">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+<!-- Footer Section -->
+<footer class="main-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="logo.png.jpg" alt="HighTech QuantumLogo">
+                <p>Innovating for a better tomorrow</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 HighTech Quantum. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+<script src="set.js"></script>
+<script src="script.js"></script>
+
+
+    <script>
+        // Portfolio filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+                
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category').includes(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

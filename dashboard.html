@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuantumTech Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #6200ea;
+            --secondary-color: #03dac6;
+            --background-color: #121212;
+            --surface-color: #1e1e1e;
+            --on-surface-color: #ffffff;
+            --text-color: #e0e0e0;
+            --accent-color: #bb86fc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--surface-color);
+            padding: 2rem;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            list-style-type: none;
+        }
+
+        .nav-links li {
+            margin-bottom: 1rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links i {
+            margin-right: 0.5rem;
+        }
+
+        .main-content {
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .welcome-section {
+            background-color: var(--surface-color);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome-section h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--on-surface-color);
+        }
+
+        .kpi-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .kpi-card {
+            background-color: var(--surface-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .kpi-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--on-surface-color);
+        }
+
+        .kpi-card .value {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .chart-section, .projects-section, .team-updates-section, .task-manager-section {
+            background-color: var(--surface-color);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-section h2, .projects-section h2, .team-updates-section h2, .task-manager-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--on-surface-color);
+        }
+
+        .project-list, .update-list {
+            list-style-type: none;
+        }
+
+        .project-list li, .update-list li {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-list li:last-child, .update-list li:last-child {
+            border-bottom: none;
+        }
+
+        .task-form {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+        .task-form input {
+            flex-grow: 1;
+            padding: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 5px 0 0 5px;
+            color: var(--text-color);
+        }
+
+        .task-form button {
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .task-form button:hover {
+            background-color: #7c4dff;
+        }
+
+        .task-list {
+            list-style-type: none;
+        }
+
+        .task-list li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .task-list li:last-child {
+            border-bottom: none;
+        }
+
+        .task-list .delete-btn {
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            border: none;
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .task-list .delete-btn:hover {
+            background-color: #cf6679;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo">QuantumTech</div>
+            <ul class="nav-links">
+                <li><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="#"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                <li><a href="#"><i class="fas fa-tasks"></i> Tasks</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> Team</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </aside>
+        <main class="main-content">
+            <section class="welcome-section">
+                <h1>Welcome back, <span id="user-name">John</span>!</h1>
+                <p>Here's your digital command center.</p>
+            </section>
+            <section class="kpi-section">
+                <div class="kpi-card">
+                    <h3>Active Projects</h3>
+                    <div class="value" id="active-projects">12</div>
+                </div>
+                <div class="kpi-card">
+                    <h3>Team Performance</h3>
+                    <div class="value" id="team-performance">92%</div>
+                </div>
+                <div class="kpi-card">
+                    <h3>Tasks Completed</h3>
+                    <div class="value" id="tasks-completed">87</div>
+                </div>
+                <div class="kpi-card">
+                    <h3>Client Satisfaction</h3>
+                    <div class="value" id="client-satisfaction">4.8</div>
+                </div>
+            </section>
+            <section class="chart-section">
+                <h2>Project Progress</h2>
+                <canvas id="projectChart"></canvas>
+            </section>
+            <section class="projects-section">
+                <h2>Recent Projects</h2>
+                <ul class="project-list" id="project-list">
+                    <!-- Projects will be added here dynamically -->
+                </ul>
+            </section>
+            <section class="team-updates-section">
+                <h2>Team Updates</h2>
+                <ul class="update-list" id="update-list">
+                    <!-- Updates will be added here dynamically -->
+                </ul>
+            </section>
+            <section class="task-manager-section">
+                <h2>Task Manager</h2>
+                <form id="task-form" class="task-form">
+                    <input type="text" id="task-input" placeholder="Enter a new task" required>
+                    <button type="submit">Add Task</button>
+                </form>
+                <ul id="task-list" class="task-list">
+                    <!-- Tasks will be added here dynamically -->
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Task Manager Functionality
+        const taskForm = document.getElementById('task-form');
+        const taskInput = document.getElementById('task-input');
+        const taskList = document.getElementById('task-list');
+
+        taskForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            addTask(taskInput.value);
+            taskInput.value = '';
+        });
+
+        function addTask(taskText) {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <span>${taskText}</span>
+                <button class="delete-btn">Delete</button>
+            `;
+            li.querySelector('.delete-btn').addEventListener('click', function() {
+                li.remove();
+            });
+            taskList.appendChild(li);
+        }
+
+        // Sample tasks
+        addTask('Review quantum algorithm proposals');
+        addTask('Prepare for AI ethics committee meeting');
+        addTask('Update team on nanotech breakthroughs');
+
+        // Personalized welcome message
+        const userNameElement = document.getElementById('user-name');
+        const names = ['John', 'Sarah', 'Michael', 'Emily', 'David'];
+        userNameElement.textContent = names[Math.floor(Math.random() * names.length)];
+
+        // Project Chart
+        const ctx = document.getElementById('projectChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                datasets: [{
+                    label: 'Project Completion Rate',
+                    data: [65, 80, 75, 95],
+                    backgroundColor: ['#bb86fc', '#03dac6', '#cf6679', '#6200ea'],
+                    borderColor: ['#bb86fc', '#03dac6', '#cf6679', '#6200ea'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            color: '#e0e0e0'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#e0e0e0'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#e0e0e0'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Dynamic KPI updates
+        function updateKPIs() {
+            document.getElementById('active-projects').textContent = Math.floor(Math.random() * 5) + 10;
+            document.getElementById('team-performance').textContent = (Math.random() * (100 - 80) + 80).toFixed(1) + '%';
+            document.getElementById('tasks-completed').textContent = Math.floor(Math.random() * 20) + 80;
+            document.getElementById('client-satisfaction').textContent = (Math.random() * (5 - 4) + 4).toFixed(1);
+        }
+
+        setInterval(updateKPIs, 5000);
+
+        // Dynamic project list
+        const projects = [
+            { name: 'Quantum Encryption Protocol', status: 'In Progress' },
+            { name: 'AI-Driven Drug Discovery', status: 'Planning' },
+            { name: 'Nanobot Swarm Control System', status: 'Testing' },
+            { name: 'Holographic User Interface', status: 'Development' }
+        ];
+
+        const projectList = document.getElementById('project-list');
+        projects.forEach(project => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <h3>${project.name}</h3>
+                <p>Status: ${project.status}</p>
+            `;
+            projectList.appendChild(li);
+        });
+
+        // Dynamic team updates
+        const updates = [
+            { title: 'New Team Member', content: 'Welcome Dr. Quantum to the R&D Team!' },
+            { title: 'Project Milestone', content: 'Nanobot Swarm project has entered the testing phase.' },
+            { title: 'Upcoming Training', content: 'Advanced Quantum Computing workshop next week.' }
+        ];
+
+        const updateList = document.getElementById('update-list');
+        updates.forEach(update => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <h3>${update.title}</h3>
+                <p>${update.content}</p>
+            `;
+            updateList.appendChild(li);
+        });
+    </script>
+</body>
+</html>
