@@ -3,153 +3,343 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Insights Section</title>
+    <title>HighTech Quantum - Login/Signup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
-        /* ... (previous CSS remains the same) ... */
 
-        .expanded-content {
-            display: none;
-            padding: 1rem;
-            background-color: var(--card-background);
-            border-top: 1px solid var(--accent-color);
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        .expanded-content.active {
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .containers {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgb(0, 0, 0);
+            border: none;
+            overflow: hidden;
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .welcome-panel, .form-panel {
+            padding: 30px;
+            transition: all 0.6s ease-in-out;
+        }
+
+        .welcome-panel {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-panel::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            transform: rotate(-45deg);
+            animation: shine 10s linear infinite;
+        }
+
+        .welcome-panel h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .welcome-panel p {
+            font-size: 1em;
+            position: relative;
+            z-index: 2;
+        }
+
+        .form-panel {
+            background-color: white;
+        }
+
+        .form-panel h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .input-group i {
+            position: absolute;
+            left: 0;
+            top: 10px;
+            color: blue;
+            font-size: 1.2em;
+        }
+        input {
+            padding: 10px 0 10px 30px;
+            width: 100%;
+            border: none;
+            border-bottom: 3px solid #a7a5a5;
+            box-shadow: inset 1px 2px 8px #a7a5a5;
+            font-size: 1em;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+        }
+        input:focus {
+            outline: none;
+            border-bottom-color: #04ffff;
+            box-shadow: inset 1px 2px 8px #04ffff;
+        }
+
+        button {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border: none;
+            padding: 12px;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-login {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-login p {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-btn {
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin: 0 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .social-btn:hover i {
+            color: white;
+        }
+
+        .social-btn i {
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .forgot-password, .toggle-text {
             display: block;
+            text-align: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 1.05em;
+            margin-top: 15px;
+            transition: all 0.3s ease;
         }
 
-        .learn-more.active span {
-            color: var(--accent-color);
+        .forgot-password:hover, .toggle-text:hover {
+            color: var(--secondary-color);
         }
 
-        .learn-more.active svg {
-            transform: rotate(90deg);
+        @media screen and (min-width: 768px) {
+            .containers {
+                display: flex;
+                max-width: 800px;
+            }
+
+            .welcome-panel, .form-panel {
+                width: 50%;
+                height: auto;
+            }
+
+            .welcome-panel {
+                clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+                padding: 50px 30px;
+            }
+
+            .form-panel {
+                padding: 50px;
+            }
+
+            .containers.flipped .welcome-panel {
+                transform: translateX(100%);
+                clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+            }
+
+            .containers.flipped .form-panel {
+                transform: translateX(-100%);
+            }
         }
+        
     </style>
 </head>
 <body>
-    <section class="tech-insights-section">
-        <div class="tech-particles"></div>
-        <div class="insights-grid">
-            <article class="insight-item">
-                <div class="insight-content">
-                    <div class="insight-image">
-                        <img src="ai.png" alt="The Future of AI in Business">
-                        <div class="insight-category">AI</div>
-                    </div>
-                    <div class="insight-text">
-                        <h3>The Future of AI in Business</h3>
-                        <p>Exploring how artificial intelligence is reshaping industries and driving innovation.</p>
-                    </div>
-                </div>
-                <a href="#" class="learn-more" data-target="ai-content">
-                    <span>Discover AI's Impact</span>
-                    <svg viewBox="0 0 24 24" width="24" height="24">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-                <div id="ai-content" class="expanded-content">
-                    <h4>Transformative Impact of AI</h4>
-                    <ul>
-                        <li>Automation of routine tasks</li>
-                        <li>Enhanced decision-making through data analytics</li>
-                        <li>Personalized customer experiences at scale</li>
-                    </ul>
-                    <p>Businesses that successfully integrate AI will likely gain significant competitive advantages. However, it's crucial to approach AI adoption strategically, balancing innovation with ethical considerations and human-centric values.</p>
-                </div>
-                <div class="insight-decoration"></div>
-            </article>
-            <article class="insight-item">
-                <div class="insight-content">
-                    <div class="insight-image">
-                        <img src="cyber.png" alt="Cybersecurity Best Practices for 2024">
-                        <div class="insight-category">Security</div>
-                    </div>
-                    <div class="insight-text">
-                        <h3>Cybersecurity Best Practices for 2024</h3>
-                        <p>Stay ahead of evolving threats with our expert guide to digital security.</p>
-                    </div>
-                </div>
-                <a href="#" class="learn-more" data-target="security-content">
-                    <span>Enhance Your Security</span>
-                    <svg viewBox="0 0 24 24" width="24" height="24">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-                <div id="security-content" class="expanded-content">
-                    <h4>Key Cybersecurity Practices</h4>
-                    <ul>
-                        <li>Implement Multi-Factor Authentication (MFA)</li>
-                        <li>Adopt Zero Trust Architecture</li>
-                        <li>Utilize AI-Powered Threat Detection</li>
-                        <li>Conduct Regular Security Audits</li>
-                    </ul>
-                    <p>Remember, cybersecurity is an ongoing process. Stay informed about emerging threats and continuously update your defenses.</p>
-                </div>
-                <div class="insight-decoration"></div>
-            </article>
-            <article class="insight-item">
-                <div class="insight-content">
-                    <div class="insight-image">
-                        <img src="ux.png" alt="Mastering UX Design for Mobile Apps">
-                        <div class="insight-category">UX Design</div>
-                    </div>
-                    <div class="insight-text">
-                        <h3>Mastering UX Design for Mobile Apps</h3>
-                        <p>Tips and tricks to create user-friendly mobile experiences that delight customers.</p>
-                    </div>
-                </div>
-                <a href="#" class="learn-more" data-target="ux-content">
-                    <span>Elevate Your UX Skills</span>
-                    <svg viewBox="0 0 24 24" width="24" height="24">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-                <div id="ux-content" class="expanded-content">
-                    <h4>Essential UX Design Tips</h4>
-                    <ul>
-                        <li>Simplify and Prioritize Core Functionality</li>
-                        <li>Optimize for One-Handed Use</li>
-                        <li>Enhance Speed and Performance</li>
-                        <li>Implement Intuitive Navigation</li>
-                        <li>Design for Accessibility</li>
-                    </ul>
-                    <p>Remember, great UX design is iterative. Continuously test, learn, and improve your app based on user interactions and feedback.</p>
-                </div>
-                <div class="insight-decoration"></div>
-            </article>
+    
+    <div class="containers">
+        <div class="welcome-panel">
+            <h2>Hello, welcome back!</h2>
+            <p>Enter your personal details and start your journey with us</p>
         </div>
-    </section>
+        <div class="form-panel">
+            <h2>Sign In</h2>
+            <form id="signinForm">
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <button type="submit">Sign In</button>
+            </form>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+            <div class="social-login">
+                <p>Or sign in with:</p>
+                <div class="social-icons">
+                    <button class="social-btn"><i class="fab fa-google"></i></button>
+                    <button class="social-btn"><i class="fab fa-facebook-f"></i></button>
+                    <button class="social-btn"><i class="fab fa-twitter"></i></button>
+                </div>
+            </div>
+            <p class="toggle-text" onclick="togglePanel()">Don't have an account? Sign Up</p>
+        </div>
+    </div>
+
+    
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const learnMoreButtons = document.querySelectorAll('.learn-more');
-            
-            learnMoreButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('data-target');
-                    const targetContent = document.getElementById(targetId);
-                    
-                    // Toggle the expanded content
-                    targetContent.classList.toggle('active');
-                    
-                    // Toggle the button state
-                    this.classList.toggle('active');
-                    
-                    // Change button text
-                    const spanText = this.querySelector('span');
-                    if (targetContent.classList.contains('active')) {
-                        spanText.textContent = 'Read Less';
-                    } else {
-                        spanText.textContent = spanText.getAttribute('data-original-text');
-                    }
-                });
-                
-                // Store original button text
-                const spanText = button.querySelector('span');
-                spanText.setAttribute('data-original-text', spanText.textContent);
-            });
+        const container = document.querySelector('.containers');
+        const welcomePanel = document.querySelector('.welcome-panel');
+        const formPanel = document.querySelector('.form-panel');
+        const formTitle = document.querySelector('.form-panel h2');
+        const form = document.querySelector('form');
+        const toggleText = document.querySelector('.toggle-text');
+        const socialLoginText = document.querySelector('.social-login p');
+
+        function togglePanel() {
+            container.classList.toggle('flipped');
+            if (container.classList.contains('flipped')) {
+                welcomePanel.querySelector('h2').textContent = 'New Here!';
+                welcomePanel.querySelector('p').textContent = 'To keep connected with us please login with your personal info';
+                formTitle.textContent = 'Create Account';
+                form.id = 'signupForm';
+                form.innerHTML = `
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-user-circle"></i>
+                        <input type="text" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" placeholder="Phone Number" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Confirm Password" required>
+                    </div>
+
+                    <button type="submit">Sign Up</button>
+
+                `;
+                toggleText.textContent = 'Already have an account? Log In';
+                socialLoginText.textContent = 'Or sign up with:';
+                document.querySelector('.forgot-password').style.display = 'none';
+            } else {
+                welcomePanel.querySelector('h2').textContent = 'Hello, Welcome Back!';
+                welcomePanel.querySelector('p').textContent = 'Enter your personal details and start your journey with us';
+                formTitle.textContent = 'Sign In';
+                form.id = 'signinForm';
+                form.innerHTML = `
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <div class="input-group" style="align-items: center;">
+                        <input type="checkbox" id="rememberMe" style="width: auto; margin-right: 8px;">
+                        <label for="rememberMe">Remember Me</label>
+                    </div>
+                    <button type="submit">Sign In</button>
+
+                `;
+                toggleText.textContent = "Don't have an account? Sign Up";
+                socialLoginText.textContent = 'Or sign in with:';
+                document.querySelector('.forgot-password').style.display = 'block';
+            }
+        }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would typically handle form submission
+            alert('Form submitted! In a real application, this would connect to your backend.');
         });
     </script>
 </body>

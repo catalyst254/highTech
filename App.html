@@ -3,235 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile App Development Services - HighTech Quantum</title>
+    <title>HighTech Quantum - Login/Signup</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="services.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .containers {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 800px;
+            max-width: 100%;
+            min-height: 480px;
+            display: flex;
+            transition: all 0.6s ease-in-out;
+        }
+        .welcome-panel, .form-panel {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .welcome-panel {
+            background-color: #3498db;
+            color: white;
+            width: 40%;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.6s ease-in-out;
+            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+        .welcome-panel::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                60deg,
+                transparent,
+                transparent 20px,
+                rgba(255, 255, 255, 0.1) 20px,
+                rgba(255, 255, 255, 0.1) 40px
+            );
+            transform: rotate(-45deg);
+            z-index: 1;
+        }
+        .welcome-panel h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        .welcome-panel p {
+            font-size: 1em;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .form-panel {
+            width: 60%;
+            background-color: white;
+            transition: all 0.6s ease-in-out;
+        }
+        .form-panel h2 {
+            color: #3498db;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .input-group i {
+            position: absolute;
+            left: 0;
+            top: 10px;
+            color: #3498db;
+        }
+        input {
+            padding: 10px 0 10px 30px;
+            width: 100%;
+            border: none;
+            border-bottom: 2px solid #ddd;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        input:focus {
+            outline: none;
+            border-bottom-color: #3498db;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 10px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .containers.flipped .welcome-panel {
+            transform: translateX(-150%);
+            clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+        }
+        .containers.flipped .form-panel {
+            transform: translateX(66.6666%);
+        }
+        .social-login {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .social-login p {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+        }
+        .social-btn {
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin: 0 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .social-btn:hover {
+            background-color: #e0e0e0;
+        }
+        .social-btn i {
+            color: #3498db;
+        }
+        .forgot-password {
+            margin-top: 10px;
+            color: #3498db;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+        .toggle-text {
+            color: #3498db;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .toggle-text:hover {
+            text-decoration: underline;
+        }
+        
+    </style>
 </head>
-<div class="top-bar">
-    <div class="contact-infom">
-        <span class="phone"><i class="fas fa-phone-alt"></i> +254 110 848 885</span>
-        <span class="email"><i class="fas fa-envelope"></i> info@gitonga.com</span>
-        <span class="hours"><i class="fas fa-clock"></i> Mon-Fri 9am-6pm</span>
-    </div>
-    <div class="social-icons">
-        <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="icon"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
-    </div>
-</div>
-<div class="animated-bg">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
-<header id="main-header"> 
-    <div class="logo">
-        <img src="logo.jpg" alt="Gitonga Tech Studio">
-    </div>
-    <h2>HighTech Quantum</h2>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Contact</a></li>
-            <li class="dropdown">
-              <button class="dropbtn">Go To Platforms <i class="fa fa-caret-down"></i></button>
-              <div class="dropdown-content">
-                <a href="hightechlab.html"><i class="fa fa-graduation-cap"></i> HighTech Lab</a>
-                <a href="#"><i class="fas fa-tachometer-alt"></i> HighTech Dashboard</a>
-              </div>
-            </li>
-        </ul>
-    </nav>
-    <div class="hamburger-menu">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-    </div>
-</header>
 <body>
-    <section id="hero-services">
-        <h1>Our Services > Mobile App Development</h1>
-        <p>Transform your ideas into powerful, user-friendly mobile applications</p>
-    </section>
-
-    <main class="solutions-page">
-        <div class="container">
-            <div class="solutions-content">
-                <div class="solutions-list-wrapper">
-                    <div class="solutions-list">
-                        <h2> <i class="fas fa-globe"></i> Web Solutions</h2>
-                        <ul>
-                            <li><a href="#real-estate"><i class="fas fa-home"></i>Real Estate Websites<span><i class="fas fa-arrow-right"></i></span></a></li>
-                            <li><a href="#tourism"><i class="fas fa-plane"></i>Tourism Portals <span><i class="fas fa-arrow-right"></i></span></a></li>
-                            <li><a href="#portfolios"><i class="fas fa-briefcase"></i>Professional Portfolios <span><i class="fas fa-arrow-right"></i></span></a></li>
-                            <li><a href="#health"><i class="fas fa-heartbeat"></i>Healthcare Platforms <span><i class="fas fa-arrow-right"></i></span></a></li>
-                            <li><a href="#ecommerce"><i class="fas fa-shopping-cart"></i>E-commerce Solutions<span><i class="fas fa-arrow-right"></i></span></a></li>
-                            <li><a href="#affiliate"><i class="fas fa-handshake"></i>Affiliate Marketing Websites <span><i class="fas fa-arrow-right"></i></span></a></li>
-                            <li><a href="#education"><i class="fas fa-graduation-cap"></i>Educational Platforms <span><i class="fas fa-arrow-right"></i></span></a></li>
-                            <li><a href="#company-portal"><i class="fas fa-building"></i>Company Portals <span><i class="fas fa-arrow-right"></i></span></a></li>
-                            <li><a href="#blog"><i class="fas fa-blog"></i>Blog Websites <span><i class="fas fa-arrow-right"></i></span></a></li>
-                            <li><a href="#nonprofit"><i class="fas fa-hand-holding-heart"></i>Non-profit Organization Sites <span><i class="fas fa-arrow-right"></i></span></a></li>
-                        </ul>
-        
-                        <h2> <i class="fas fa-palette"></i> Design Services</h2>
-                        <ul>
-                            <li><a href="#graphic-design"><i class="fas fa-pencil-alt"></i> Graphic Design <span><i class="fas fa-arrow-right"></i></span></a></li>
-                            <li><a href="#logo-design"><i class="fas fa-vector-square"></i>Logo Design <span><i class="fas fa-arrow-right"></i></span></a></li>
-                            <li><a href="#photography"><i class="fas fa-camera"></i>Professional Photography <span><i class="fas fa-arrow-right"></i></span></a></li>
-                        </ul>
-        
-                        <h2>Tech Services</h2>
-                        <ul>
-                            <li><a href="#app-development" class="active"> <i class="fas fa-mobile-alt"></i>Mobile App Development <span><i class="fas fa-arrow-right"></i></span></a></li>
-                            <li><a href="#seo"><i class="fas fa-search"></i>Search Engine Optimization <span><i class="fas fa-arrow-right"></i></span></a></li>
-                            <li><a href="#cybersecurity"><i class="fas fa-shield-alt"></i> Cybersecurity Solutions <span><i class="fas fa-arrow-right"></i></span></i></a></li>
-                            <li><a href="#cloud"><i class="fas fa-cloud"></i> Cloud Computing Services <span><i class="fas fa-arrow-right"></i></span></a></li>
-                            <li><a href="#ai-ml"> <i class="fas fa-brain"></i> AI and Machine Learning Integration <span><i class="fas fa-arrow-right"></i></span> </a></li>
-                            <li><a href="#iot"> <i class="fas fa-wifi"></i> Internet of Things (IoT) Integration <span><i class="fas fa-arrow-right"></i></span></a></li>
-                            <li><a href="#mpesa"><i class="fas fa-money-bill-wave"></i> Mpesa Integration <span><i class="fas fa-arrow-right"></i></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="contact-container">
-                        <p>Ready to bring your app idea to life?</p>
-                        <a href="#contact" class="btn btn-primary">Contact Us Today</a>
-                        <div class="phone-number">
-                            <i class="fas fa-phone"></i>
-                            <a href="tel:+254110848885" class="phone-link">+254-110848885</a>
-                        </div>
-                    </div>
+    <div class="containers">
+        <div class="form-panel">
+            <h2>Sign In</h2>
+            <form id="signinForm">
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Email" required>
                 </div>
-                <section class="solutions-description">
-                    <div class="container">
-                        <h2><i class="fas fa-mobile-alt"></i> Mobile App Development Services by HighTech Quantum</h2>
-                        <div class="content-wrapper">
-                            <div class="image-container">
-                                <img src="mobile-app-development.jpg" alt="Mobile App Development Example">
-                            </div>
-                            <div class="text-content">
-                                <p>In today's mobile-first world, a well-designed app can be a game-changer for your business. At HighTech Quantum, our team of skilled developers, designers, and strategists work together to create innovative, scalable, and user-friendly mobile applications that drive engagement and deliver results.</p>
-                                
-                                <h3><i class="fas fa-code"></i> Our Mobile App Development Services</h3>
-                                
-                                <h4><i class="fab fa-apple"></i> iOS App Development</h4>
-                                <p>We create cutting-edge apps for Apple's ecosystem.</p>
-                                <ul>
-                                    <li><i class="fas fa-mobile"></i> <strong>iPhone Apps:</strong> Tailored applications for iOS devices.</li>
-                                    <li><i class="fas fa-tablet-alt"></i> <strong>iPad Apps:</strong> Optimized for larger screens and tablet functionality.</li>
-                                    <li><i class="fas fa-watch"></i> <strong>Apple Watch Apps:</strong> Wearable solutions for on-the-go users.</li>
-                                    <li><i class="fas fa-tv"></i> <strong>Apple TV Apps:</strong> Engaging experiences for the big screen.</li>
-                                    <li><i class="fab fa-app-store"></i> <strong>App Store Optimization:</strong> Maximizing visibility and downloads.</li>
-                                    <li><i class="fas fa-lock"></i> <strong>iOS Security Implementation:</strong> Ensuring data protection and privacy.</li>
-                                </ul>
-
-                                <h4><i class="fab fa-android"></i> Android App Development</h4>
-                                <p>We develop robust apps for the diverse Android ecosystem.</p>
-                                <ul>
-                                    <li><i class="fas fa-mobile-alt"></i> <strong>Smartphone Apps:</strong> Applications for various Android devices.</li>
-                                    <li><i class="fas fa-tablet"></i> <strong>Tablet Apps:</strong> Optimized for Android tablets and foldables.</li>
-                                    <li><i class="fas fa-clock"></i> <strong>Wear OS Apps:</strong> Solutions for Android-powered smartwatches.</li>
-                                    <li><i class="fas fa-tv"></i> <strong>Android TV Apps:</strong> Creating engaging smart TV experiences.</li>
-                                    <li><i class="fab fa-google-play"></i> <strong>Google Play Optimization:</strong> Improving app discoverability and installs.</li>
-                                    <li><i class="fas fa-puzzle-piece"></i> <strong>Custom Android Development:</strong> Tailored solutions for specific devices or use cases.</li>
-                                </ul>
-
-                                <h4><i class="fas fa-sync"></i> Cross-Platform App Development</h4>
-                                <p>We build apps that work seamlessly across multiple platforms.</p>
-                                <ul>
-                                    <li><i class="fab fa-react"></i> <strong>React Native Development:</strong> Efficient cross-platform solutions.</li>
-                                    <li><i class="fab fa-flutter"></i> <strong>Flutter Development:</strong> Creating beautiful, natively compiled apps.</li>
-                                    <li><i class="fas fa-mobile"></i> <strong>Xamarin Development:</strong> Cross-platform apps with native performance.</li>
-                                    <li><i class="fab fa-js-square"></i> <strong>Progressive Web Apps (PWAs):</strong> Web apps with native-like functionality.</li>
-                                    <li><i class="fas fa-sync-alt"></i> <strong>Code Reusability:</strong> Efficient development for multiple platforms.</li>
-                                    <li><i class="fas fa-user-check"></i> <strong>Consistent User Experience:</strong> Ensuring uniformity across devices.</li>
-                                </ul>
-
-                                <h4><i class="fas fa-cogs"></i> Specialized App Solutions</h4>
-                                <p>We develop apps for specific industries and use cases.</p>
-                                <ul>
-                                    <li><i class="fas fa-shopping-cart"></i> <strong>E-commerce Apps:</strong> Mobile shopping solutions with secure payments.</li>
-                                    <li><i class="fas fa-heartbeat"></i> <strong>Healthcare & Fitness Apps:</strong> Wellness tracking and telemedicine solutions.</li>
-                                    <li><i class="fas fa-graduation-cap"></i> <strong>Educational Apps:</strong> Interactive learning and training applications.</li>
-                                    <li><i class="fas fa-gamepad"></i> <strong>Gaming Apps:</strong> Engaging mobile games with advanced graphics.</li>
-                                    <li><i class="fas fa-map-marked-alt"></i> <strong>Location-Based Apps:</strong> Utilizing GPS and mapping technologies.</li>
-                                    <li><i class="fas fa-robot"></i> <strong>IoT & Smart Home Apps:</strong> Controlling and monitoring connected devices.</li>
-                                </ul>
-
-                                <h3><i class="fas fa-tasks"></i> Our App Development Process</h3>
-                                <ul>
-                                    <li><i class="fas fa-lightbulb"></i> <strong>Ideation & Strategy:</strong> Refining your app concept and planning its execution.</li>
-                                    <li><i class="fas fa-pencil-ruler"></i> <strong>UI/UX Design:</strong> Creating intuitive and visually appealing interfaces.</li>
-                                    <li><i class="fas fa-code"></i> <strong>Development:</strong> Writing clean, efficient code for your app.</li>
-                                    <li><i class="fas fa-vial"></i> <strong>Testing & QA:</strong> Rigorous testing to ensure quality and performance.</li>
-                                    <li><i class="fas fa-rocket"></i> <strong>Deployment:</strong> Launching your app on the appropriate app stores.</li>
-                                    <li><i class="fas fa-chart-line"></i> <strong>Maintenance & Updates:</strong> Ongoing support and feature enhancements.</li>
-                                </ul>
-
-                                <h3><i class="fas fa-plus-circle"></i> Additional Services</h3>
-                                <ul>
-                                    <li><i class="fas fa-cloud"></i> <strong>Cloud Integration:</strong> Connecting your app to powerful cloud services.</li>
-                                    <li><i class="fas fa-database"></i> <strong>Backend Development:</strong> Building robust server-side solutions.</li>
-                                    <li><i class="fas fa-lock"></i> <strong>App Security:</strong> Implementing advanced security measures.</li>
-                                    <li><i class="fas fa-chart-bar"></i> <strong>Analytics Integration:</strong> Tracking user behavior and app performance.</li>
-                                    <li><i class="fas fa-money-bill-wave"></i> <strong>Monetization Strategy:</strong> Implementing effective revenue models.</li>
-                                    <li><i class="fas fa-bullhorn"></i> <strong>App Marketing:</strong> Promoting your app to reach your target audience.</li>
-                                </ul>
-
-                                <p>At HighTech Quantum, we don't just develop apps; we create mobile experiences that engage users and drive your business forward. Whether you're a startup with a groundbreaking app idea or an enterprise looking to mobilize your workforce, our mobile app development services can help you achieve your goals and stay ahead in the digital landscape.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-        </div>
-    </main>
-    <!-- Footer Section -->
-<footer class="main-footer">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="logo.png.jpg" alt="HighTech QuantumLogo">
-                <p>Innovating for a better tomorrow</p>
-            </div>
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-social">
-                <h3>Connect With Us</h3>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <button type="submit">Sign In</button>
+            </form>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+            <div class="social-login">
+                <p>Or sign in with:</p>
                 <div class="social-icons">
-                    <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="icon"><i class="fab fa-linkedin-in"></i></a>
+                    <button class="social-btn"><i class="fab fa-google"></i></button>
+                    <button class="social-btn"><i class="fab fa-facebook-f"></i></button>
+                    <button class="social-btn"><i class="fab fa-twitter"></i></button>
                 </div>
             </div>
+            <p class="toggle-text" onclick="togglePanel()">Don't have an account? Sign Up</p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 HighTech Quantum. All rights reserved.</p>
+        <div class="welcome-panel">
+            <h2>Hello, Friend!</h2>
+            <p>Enter your personal details and start your journey with us</p>
         </div>
     </div>
-</footer>
 
-<script src="script.js"></script>
-<script src="set.js"></script>
+    <script>
+        const container = document.querySelector('.containers');
+        const welcomePanel = document.querySelector('.welcome-panel');
+        const formPanel = document.querySelector('.form-panel');
+        const formTitle = document.querySelector('.form-panel h2');
+        const form = document.querySelector('form');
+        const toggleText = document.querySelector('.toggle-text');
+        const socialLoginText = document.querySelector('.social-login p');
+
+        function togglePanel() {
+            container.classList.toggle('flipped');
+            if (container.classList.contains('flipped')) {
+                welcomePanel.querySelector('h2').textContent = 'Welcome Back!';
+                welcomePanel.querySelector('p').textContent = 'To keep connected with us please login with your personal info';
+                formTitle.textContent = 'Create Account';
+                form.id = 'signupForm';
+                form.innerHTML = `
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Name" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit">Sign Up</button>
+                `;
+                toggleText.textContent = 'Already have an account? Log In';
+                socialLoginText.textContent = 'Or sign up with:';
+                document.querySelector('.forgot-password').style.display = 'none';
+            } else {
+                welcomePanel.querySelector('h2').textContent = 'Hello, Friend!';
+                welcomePanel.querySelector('p').textContent = 'Enter your personal details and start your journey with us';
+                formTitle.textContent = 'Sign In';
+                form.id = 'signinForm';
+                form.innerHTML = `
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit">Sign In</button>
+                `;
+                toggleText.textContent = "Don't have an account? Sign Up";
+                socialLoginText.textContent = 'Or sign in with:';
+                document.querySelector('.forgot-password').style.display = 'block';
+            }
+        }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would typically handle form submission
+            alert('Form submitted! In a real application, this would connect to your backend.');
+        });
+    </script>
 </body>
 </html>

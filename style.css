@@ -1508,7 +1508,7 @@ nav ul li a:hover {
   max-width: 500px;
 }
 
-input[type="email"] {
+.newsletter-form [type="email"] {
   flex-grow: 1;
   padding: 15px;
   border: none;

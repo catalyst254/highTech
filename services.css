@@ -458,9 +458,13 @@
     }
 
     .tourism-hero {
-        background-image: url('web.png');
+        background-image: url('tour2.png');
     }
 
     .education-hero {
         background-image: url('coding.png');
+    }
+ 
+    .healthcare-platforms-hero {
+        background-image: url('health2.png');
     }
