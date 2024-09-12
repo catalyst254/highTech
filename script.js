@@ -148,3 +148,23 @@ document.querySelectorAll('.question').forEach(question => {
         });
     });
       
+    document.addEventListener('DOMContentLoaded', function() {
+      const readMoreLinks = document.querySelectorAll('.learn-more');
+      
+      readMoreLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const article = this.closest('.insight-item');
+          const content = article.querySelector('.read-more-content');
+          const span = this.querySelector('span');
+          
+          if (content.style.display === 'none') {
+            content.style.display = 'block';
+            span.textContent = 'Read Less';
+          } else {
+            content.style.display = 'none';
+            span.textContent = 'Read More';
+          }
+        });
+      });
+    });

@@ -245,6 +245,11 @@ nav ul li a:hover {
   .logo {
     flex: 1;
   }
+  .logo img {
+    max-height: 50px;
+    width: auto;
+    border-right: solid 1px #6f817d;
+  }
 
   nav {
     display: none;
@@ -871,6 +876,7 @@ nav ul li a:hover {
 .value-prop {
   background: rgba(0, 255, 255, 0.1);
   border: 2px solid #0ff;
+  text-align: center;
   padding: 8px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -883,10 +889,23 @@ nav ul li a:hover {
 }
 
 .value-prop i {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: var(--accents-color);
-  margin-bottom: 10px;
+  border: solid 2px #00f2ff;
+  text-shadow: 2px 3px 4px rgb(0, 0, 0);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 50%;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.664);
+  transition: all 0.3s ease;
+}
+
+.value-prop i:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.589);
 }
 
  .value-prop h3 {
@@ -896,7 +915,7 @@ nav ul li a:hover {
 }
 
 .value-prop p {
-  color: #13f1c1;
+  color: #010b63;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1.1rem;
   line-height: 1.6;
@@ -1048,6 +1067,7 @@ nav ul li a:hover {
   font-size: 36px;
   color: #00f2ff;
   margin-bottom: 10px;
+  margin-left: 70px;
 }
 
 
