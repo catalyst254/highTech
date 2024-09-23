@@ -168,3 +168,36 @@ document.querySelectorAll('.question').forEach(question => {
         });
       });
     });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const notification = document.getElementById('newsletter-notification');
+      const closeBtn = notification.querySelector('.close-btn');
+      const form = document.getElementById('newsletter-form');
+  
+      // Show notification after 15 seconds or when user scrolls 50% of the page
+      setTimeout(showNotification, 15000);
+      window.addEventListener('scroll', function() {
+          if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight / 2) {
+              showNotification();
+          }
+      });
+  
+      closeBtn.addEventListener('click', function() {
+          notification.classList.remove('show');
+          // Set a timeout to show the notification again after 30 seconds
+          setTimeout(showNotification, 40000);
+      });
+  
+      form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          // Here you would typically send the form data to your server
+          alert('Thank you for subscribing!');
+          notification.classList.remove('show');
+      });
+  
+      function showNotification() {
+          if (!notification.classList.contains('show')) {
+              notification.classList.add('show');
+          }
+      }
+  });

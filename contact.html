@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="contact.css">
 </head>
+
 <body>
     <div class="top-bar">
         <div class="contact-infom">
@@ -149,6 +150,36 @@
     <div class="whatsapp-icon" id="whatsapp-icon">
         <i class="fab fa-whatsapp"></i>
     </div>
+    <div id="newsletter-notification" class="newsletter-notification">
+        <div class="notification-content">
+          <button class="close-btn">&times;</button>
+          <h3><i class="fas fa-bell"></i> Stay Updated</h3>
+          <p>Subscribe to our newsletter for the latest tech insights and updates.</p>
+          <form id="newsletter-form">
+            <div class="input-group">
+              <input type="email" name="email" placeholder="Your Email Address" required>
+              <button type="submit" class="subbtn">
+                <span>Subscribe</span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </form>
+          <div class="newsletter-features">
+            <div class="feature">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              <span>Weekly Updates</span>
+            </div>
+            <div class="feature">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              <span>Exclusive Content</span>
+            </div>
+            <div class="feature">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Tech Trends</span>
+            </div>
+          </div>
+        </div>
+      </div>
     
 <!-- Footer Section -->
 <footer class="main-footer">
@@ -270,6 +301,39 @@
         document.getElementById('whatsapp-icon').addEventListener('click', function() {
             window.open('https://wa.me/254110848885', '_blank');
         });
+    </script>
+    
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const notification = document.getElementById('newsletter-notification');
+      const closeBtn = notification.querySelector('.close-btn');
+      const form = document.getElementById('newsletter-form');
+    
+      // Show notification after 15 seconds or when user scrolls 50% of the page
+      setTimeout(showNotification, 15000);
+      window.addEventListener('scroll', function() {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight / 2) {
+          showNotification();
+        }
+      });
+    
+      closeBtn.addEventListener('click', function() {
+        notification.classList.remove('show');
+      });
+    
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Here you would typically send the form data to your server
+        alert('Thank you for subscribing!');
+        notification.classList.remove('show');
+      });
+    
+      function showNotification() {
+        if (!notification.classList.contains('show')) {
+          notification.classList.add('show');
+        }
+      }
+    });
     </script>
 
 </body>

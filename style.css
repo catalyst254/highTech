@@ -1504,33 +1504,66 @@ nav ul li a:hover {
 
 /*subscribe*/
 
-.newsletter-section {
+.newsletter-notification {
+  position: fixed;
+  bottom: -100%;
+  right: 20px;
+  width: 300px;
   background: linear-gradient(135deg, #07cf8d9d 0%, #005effc0 100%);
   color: #fff;
-  padding: 60px 0;
-  box-shadow: 0 10px 30px rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+  transition: bottom 0.5s ease-in-out;
+  z-index: 1000;
 }
 
-.section-title i {
+.newsletter-notification.show {
+  bottom: 20px;
+}
+
+.notification-content {
+  padding: 20px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.newsletter-notification h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.newsletter-notification h3 i {
   margin-right: 10px;
   animation: bell-ring 2s infinite;
 }
 
-.newsletter-form {
+.newsletter-notification p {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+#newsletter-form {
   display: flex;
-  justify-content: center;
-  margin-top: 30px;
+  flex-direction: column;
 }
 
 .input-group {
-  display: flex;
+  display: inline-flex;
   width: 100%;
-  max-width: 500px;
 }
 
-.newsletter-form [type="email"] {
+#newsletter-form input {
   flex-grow: 1;
-  padding: 15px;
+  padding: 10px;
   border: none;
   border-radius: 30px 0 0 30px;
   font-size: 1em;
@@ -1543,7 +1576,7 @@ nav ul li a:hover {
   font-family: cursive;
   font-weight: bolder;
   border: none;
-  padding: 15px ;
+  padding: 10px;
   border-radius: 0 30px 30px 0;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -1555,14 +1588,15 @@ nav ul li a:hover {
 
 .newsletter-features {
   display: flex;
-  justify-content: space-around;
-  margin-top: 10px;
+  flex-direction: column;
+  margin-top: 15px;
 }
 
 .feature {
   display: flex;
   align-items: center;
   font-size: 0.9em;
+  margin-bottom: 5px;
 }
 
 .feature svg {
@@ -1579,28 +1613,38 @@ nav ul li a:hover {
   40%, 80% { transform: rotate(10deg); }
 }
 
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.newsletter-notification.show {
+  animation: pulse 2s infinite;
+}
+
 @media (max-width: 600px) {
+  .newsletter-notification {
+    width: 90%;
+    right: 5%;
+    left: 5%;
+  }
+  
   .input-group {
     flex-direction: column;
   }
   
-  input[type="email"], .btn-primary {
-    width: 95%;
+  #newsletter-form input,
+  .subbtn {
+    width: 100%;
     border-radius: 30px;
     margin-bottom: 10px;
-  }
-  
-  .newsletter-features {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .feature {
-    margin-bottom: 20px;
-  }
-  .question{
-    font-size: large;
-    font-weight: bolder;
   }
 }
 
