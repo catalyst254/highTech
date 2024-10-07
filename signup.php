@@ -100,7 +100,7 @@ if(isset($_POST['submit'])) {
                     <button class="social-btn"><i class="fab fa-twitter"></i></button>
                 </div>
             </div>
-            <a href="signin." class="toggle-text">Already have an account? Log In</a>
+            <a href="signin.php" class="toggle-text">Already have an account? Log In</a>
         </div>
     </div>
     <script>
