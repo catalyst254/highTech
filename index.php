@@ -49,7 +49,7 @@
                 <li class="dropdown">
                   <button class="dropbtn">Go To Platforms <i class="fa fa-caret-down"></i></button>
                   <div class="dropdown-content">
-                    <a href="hightechlab.html"><i class="fa fa-graduation-cap"></i> HighTech Lab</a>
+                    <a href="signup.php"><i class="fa fa-graduation-cap"></i> HighTech Lab</a>
                     <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> HighTech Dashboard</a>
                   </div>
                 </li>

@@ -73,3 +73,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     countElements.forEach(el => observer.observe(el));
   });
+
+  

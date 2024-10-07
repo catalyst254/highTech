@@ -1,3 +1,17 @@
+<?php
+session_start();
+@include 'connect.php';
+
+// Check if admin is NOT logged in
+if (!isset( $_SESSION['user_name'])) {
+    header('Location: signin.php');
+    exit();
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +29,7 @@
         <nav class="header-nav">
             <i class="fas fa-envelope"></i>
             <i class="fas fa-bell"></i>
-            <div class="user-greeting">Hello, <span id="user-name">User</span></div>
+            <div class="user-greeting">Hello,<span><?php echo htmlspecialchars( $_SESSION['user_name']); ?></span></div>
             <div class="user-dropdown">
                 <i class="fas fa-user"></i>
                 <div class="user-dropdown-content">
@@ -26,11 +40,17 @@
                 </div>
             </div>
         </nav>
+        <div class="userR">
+        <i class="fas fa-user"></i>
+        </div>
         <div class="three-dot-menu">&#8942;</div>
         <div class="mobile-dropdown">
             <a href="#"><i class="fas fa-envelope"></i> Messages</a>
             <a href="#"><i class="fas fa-bell"></i> Notifications</a>
             <a href="#"><i class="fas fa-user"></i> Profile</a>
+            <hr>
+            <a href="#"><i class="fas fa-power-off"></i> Logout</a>
+
         </div>
     </header>
 

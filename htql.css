@@ -147,6 +147,9 @@ header img{
   font-weight: bolder;
   text-shadow: 2px 2px 2px rgb(0, 0, 0);
 }
+.userR{
+  display: none;
+}
 
 @media screen and (max-width: 768px) {
   .header-nav {
@@ -204,7 +207,10 @@ header img{
   }
 
   .mobile-dropdown a:hover {
-      background-color: #f1f1f1;
+      background-color: #d4d0d0;
+  }
+  .userR {
+    display: block;
   }
 }
 .section {
@@ -486,4 +492,5 @@ h1 {
 .course-link:hover {
   background-color: #a82525;
 }
+
 
